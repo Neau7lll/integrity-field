@@ -1,4 +1,4 @@
-const CACHE_NAME = "integrity-field-v1";
+const CACHE_NAME = "integrity-field-v2";
 
 const APP_FILES = [
   "./",
@@ -11,10 +11,8 @@ const APP_FILES = [
 self.addEventListener("install", event => {
 
   event.waitUntil(
-
     caches.open(CACHE_NAME)
       .then(cache => cache.addAll(APP_FILES))
-
   );
 
   self.skipWaiting();
@@ -26,17 +24,17 @@ self.addEventListener("activate", event => {
 
   event.waitUntil(
 
-    caches.keys().then(keys =>
+    caches.keys().then(keys => {
 
-      Promise.all(
+      return Promise.all(
 
         keys
           .filter(key => key !== CACHE_NAME)
           .map(key => caches.delete(key))
 
-      )
+      );
 
-    )
+    })
 
   );
 
@@ -49,19 +47,30 @@ self.addEventListener("fetch", event => {
 
   event.respondWith(
 
-    caches.match(event.request)
-      .then(cachedResponse => {
+    fetch(event.request)
+      .then(response => {
 
-        if(cachedResponse){
-          return cachedResponse;
-        }
+        const copy = response.clone();
 
-        return fetch(event.request)
-          .catch(() => {
+        caches.open(CACHE_NAME)
+          .then(cache => {
 
-            return caches.match("./index.html");
+            cache.put(
+              event.request,
+              copy
+            );
 
           });
+
+        return response;
+
+      })
+
+      .catch(() => {
+
+        return caches.match(
+          event.request
+        );
 
       })
 
