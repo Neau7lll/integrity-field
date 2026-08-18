@@ -6,16 +6,13 @@
 <meta charset="UTF-8">
 
 <meta name="viewport"
-      content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
-<meta name="theme-color"
-      content="#10212b">
+<meta name="theme-color" content="#10212b">
 
-<link rel="manifest"
-      href="manifest.webmanifest">
+<link rel="manifest" href="manifest.webmanifest">
 
-<link rel="icon"
-      href="icon-192.png">
+<link rel="icon" href="icon-192.png">
 
 <title>Morimi Fire Integrity</title>
 
@@ -30,34 +27,36 @@
   --accent2:#0e6070;
   --line:#dce4e7;
   --danger:#b83a3a;
-  --ok:#247a52;
   --shadow:0 8px 24px rgba(22,40,48,.08);
 }
 
 *{
-  box-sizing:border-box
+  box-sizing:border-box;
 }
 
 body{
   margin:0;
   background:var(--bg);
   font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
-  color:var(--ink)
+  color:var(--ink);
 }
 
-button,input,select,textarea{
-  font:inherit
+button,
+input,
+select,
+textarea{
+  font:inherit;
 }
 
 button{
-  cursor:pointer
+  cursor:pointer;
 }
 
 .app{
   max-width:760px;
   margin:auto;
   min-height:100vh;
-  background:var(--bg)
+  background:var(--bg);
 }
 
 header{
@@ -66,41 +65,41 @@ header{
   padding:22px 20px 18px;
   position:sticky;
   top:0;
-  z-index:10
+  z-index:10;
 }
 
 .brand{
   font-weight:800;
   font-size:20px;
-  letter-spacing:.2px
+  letter-spacing:.2px;
 }
 
 .subtitle{
   font-size:12px;
   color:#b8c8ce;
-  margin-top:3px
+  margin-top:3px;
 }
 
 main{
-  padding:18px 16px 110px
+  padding:18px 16px 110px;
 }
 
 .screen{
-  display:none
+  display:none;
 }
 
 .screen.active{
-  display:block
+  display:block;
 }
 
 h1{
   font-size:28px;
-  margin:8px 0 6px
+  margin:8px 0 6px;
 }
 
 .lead{
   color:var(--muted);
-  margin:0 0 20px
+  margin:0 0 20px;
 }
 
 .card{
@@ -109,26 +108,26 @@ h1{
   border-radius:16px;
   padding:18px;
   margin-bottom:14px;
-  box-shadow:var(--shadow)
+  box-shadow:var(--shadow);
 }
 
 .card h2{
   font-size:16px;
-  margin:0 0 14px
+  margin:0 0 14px;
 }
 
 .grid{
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:12px
+  gap:12px;
 }
 
 .field{
-  margin-bottom:12px
+  margin-bottom:12px;
 }
 
 .field:last-child{
-  margin-bottom:0
+  margin-bottom:0;
 }
 
 label{
@@ -136,7 +135,7 @@ label{
   font-size:12px;
   font-weight:700;
   color:var(--muted);
-  margin:0 0 6px
+  margin:0 0 6px;
 }
 
 input,
@@ -148,79 +147,79 @@ textarea{
   padding:12px;
   background:#fff;
   color:var(--ink);
-  outline:none
+  outline:none;
 }
 
 input:focus,
 select:focus,
 textarea:focus{
   border-color:var(--accent);
-  box-shadow:0 0 0 3px rgba(20,125,146,.12)
+  box-shadow:0 0 0 3px rgba(20,125,146,.12);
 }
 
 textarea{
   min-height:92px;
-  resize:vertical
+  resize:vertical;
 }
 
 .btn{
   border:0;
   border-radius:11px;
   padding:13px 16px;
-  font-weight:750
+  font-weight:750;
 }
 
 .primary{
   background:var(--accent);
-  color:#fff
+  color:#fff;
 }
 
 .primary:hover{
-  background:var(--accent2)
+  background:var(--accent2);
 }
 
 .secondary{
   background:#e9f0f2;
-  color:var(--ink)
+  color:var(--ink);
 }
 
 .ghost{
   background:transparent;
   color:var(--accent);
-  border:1px solid var(--line)
+  border:1px solid var(--line);
 }
 
 .danger{
   background:#fff0f0;
   color:var(--danger);
-  border:1px solid #f0d0d0
+  border:1px solid #f0d0d0;
 }
 
 .row{
   display:flex;
   gap:10px;
-  align-items:center
+  align-items:center;
 }
 
 .between{
-  justify-content:space-between
+  justify-content:space-between;
 }
 
 .actions{
   display:flex;
   gap:10px;
-  margin-top:16px
+  margin-top:16px;
 }
 
 .actions .btn{
-  flex:1
+  flex:1;
 }
 
 .home-grid{
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:14px;
-  margin-top:22px
+  margin-top:22px;
 }
 
 .big-card{
@@ -229,17 +228,17 @@ textarea{
   border-radius:18px;
   padding:20px;
   box-shadow:var(--shadow);
-  text-align:left
+  text-align:left;
 }
 
 .big-card strong{
   display:block;
   font-size:16px;
-  margin-top:10px
+  margin-top:10px;
 }
 
 .icon{
-  font-size:30px
+  font-size:30px;
 }
 
 .section{
@@ -247,19 +246,19 @@ textarea{
   border-radius:13px;
   padding:14px;
   margin-bottom:12px;
-  background:#fbfcfc
+  background:#fbfcfc;
 }
 
 .section-title{
   font-weight:800;
-  margin-bottom:10px
+  margin-bottom:10px;
 }
 
 .volume{
   font-size:15px;
   font-weight:800;
   color:var(--accent);
-  margin-top:10px
+  margin-top:10px;
 }
 
 .total{
@@ -267,25 +266,25 @@ textarea{
   border:1px solid #c9e3e8;
   border-radius:14px;
   padding:16px;
-  text-align:center
+  text-align:center;
 }
 
 .total .num{
   font-size:30px;
   font-weight:850;
-  color:var(--accent)
+  color:var(--accent);
 }
 
 .small{
   font-size:12px;
-  color:var(--muted)
+  color:var(--muted);
 }
 
 .photo-grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
   gap:9px;
-  margin-top:10px
+  margin-top:10px;
 }
 
 .photo-grid img{
@@ -293,7 +292,7 @@ textarea{
   aspect-ratio:1;
   object-fit:cover;
   border-radius:10px;
-  border:1px solid var(--line)
+  border:1px solid var(--line);
 }
 
 .empty{
@@ -301,16 +300,16 @@ textarea{
   text-align:center;
   color:var(--muted);
   border:1px dashed var(--line);
-  border-radius:12px
+  border-radius:12px;
 }
 
 .saved-item{
   padding:14px 0;
-  border-bottom:1px solid var(--line)
+  border-bottom:1px solid var(--line);
 }
 
 .saved-item:last-child{
-  border-bottom:0
+  border-bottom:0;
 }
 
 .badge{
@@ -319,7 +318,7 @@ textarea{
   border-radius:999px;
   background:#e8f2f4;
   color:var(--accent);
-  font-weight:750
+  font-weight:750;
 }
 
 .bottom{
@@ -331,76 +330,99 @@ textarea{
   backdrop-filter:blur(10px);
   border-top:1px solid var(--line);
   padding:10px max(16px,calc((100vw - 760px)/2 + 16px));
-  z-index:20
+  z-index:20;
 }
 
 .bottom .btn{
-  width:100%
+  width:100%;
 }
 
 
-/* TEST SECTIONS */
+/* ================================
+   TEST TABLES
+================================ */
 
 .test-block{
-  margin-top:12px;
   border:1px solid var(--line);
-  border-radius:14px;
-  overflow:hidden
+  border-radius:12px;
+  overflow:hidden;
+  margin-top:12px;
 }
 
-.test-heading{
+.test-table{
+  width:100%;
+  border-collapse:collapse;
+  table-layout:fixed;
+}
+
+.test-table th{
   background:#eef5f6;
-  padding:14px;
+  color:var(--ink);
+  font-size:11px;
   font-weight:800;
-  color:var(--ink)
+  padding:8px 3px;
+  border-right:1px solid var(--line);
+  text-align:center;
 }
 
-.test-row{
-  padding:16px;
+.test-table td{
+  padding:4px 3px;
   border-top:1px solid var(--line);
-  background:#fff
+  border-right:1px solid var(--line);
 }
 
-.test-row-title{
+.test-table th:last-child,
+.test-table td:last-child{
+  border-right:0;
+}
+
+.test-table th:first-child,
+.test-table td:first-child{
+  width:23%;
+}
+
+.test-table th:not(:first-child),
+.test-table td:not(:first-child){
+  width:15.4%;
+}
+
+.test-table input{
+  width:100%;
+  min-width:0;
+  padding:9px 3px;
+  border-radius:7px;
+  text-align:center;
+  font-size:13px;
+}
+
+.test-title{
+  background:#eef5f6;
+  padding:12px;
   font-weight:800;
-  color:var(--accent);
-  margin-bottom:12px
+  color:var(--ink);
 }
 
-.test-results{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:10px
-}
-
-.test-result label{
-  font-size:11px
-}
-
-.test-result input{
-  padding:11px
-}
-
-.test-note{
-  margin-bottom:12px
+.test-description{
+  margin:10px 0 0;
 }
 
 
-/* PRINT REPORT */
+/* ================================
+   PRINT REPORT
+================================ */
 
 #printReport{
-  display:none
+  display:none;
 }
 
 @media print{
 
   body{
     background:#fff;
-    margin:0
   }
 
   body > .app{
-    display:none !important
+    display:none !important;
   }
 
   #printReport{
@@ -408,111 +430,109 @@ textarea{
     width:100%;
     color:#111;
     font-family:Arial,Helvetica,sans-serif;
-    padding:15mm
+    padding:12mm;
   }
 
   .print-header{
     border-bottom:2px solid #17232b;
-    padding-bottom:12px;
-    margin-bottom:18px
+    padding-bottom:10px;
+    margin-bottom:15px;
   }
 
   .print-title{
-    font-size:24px;
+    font-size:22px;
     font-weight:bold;
-    color:#17232b
   }
 
   .print-subtitle{
-    font-size:12px;
+    font-size:11px;
     color:#555;
-    margin-top:4px
+    margin-top:3px;
   }
 
   .print-section{
-    margin-bottom:18px;
-    page-break-inside:avoid
+    margin-bottom:16px;
+    page-break-inside:avoid;
   }
 
   .print-section-title{
-    font-size:13px;
+    font-size:12px;
     font-weight:bold;
     color:#147d92;
     border-bottom:1px solid #ccc;
-    padding-bottom:5px;
-    margin-bottom:8px
+    padding-bottom:4px;
+    margin-bottom:7px;
   }
 
   .print-grid{
     display:grid;
     grid-template-columns:1fr 1fr;
-    gap:5px 20px
+    gap:3px 15px;
   }
 
   .print-field{
-    font-size:10px;
-    padding:4px 0
+    font-size:9px;
+    padding:3px 0;
   }
 
   .print-label{
     font-weight:bold;
-    color:#555
+    color:#555;
   }
 
   .print-value{
-    margin-left:6px
+    margin-left:5px;
   }
 
   .print-table{
     width:100%;
     border-collapse:collapse;
-    font-size:9px
+    font-size:8px;
   }
 
   .print-table th,
   .print-table td{
-    border:1px solid #ccc;
-    padding:5px;
-    text-align:center
+    border:1px solid #bbb;
+    padding:4px;
+    text-align:center;
   }
 
   .print-table th{
     background:#f0f3f4;
-    font-weight:bold
+    font-weight:bold;
   }
 
-  .print-table td:first-child,
-  .print-table th:first-child{
-    text-align:left
+  .print-table th:first-child,
+  .print-table td:first-child{
+    text-align:left;
   }
 
   .print-total{
-    margin-top:10px;
-    padding:10px;
+    margin-top:7px;
+    padding:7px;
     border:1px solid #b8d9df;
     background:#eef8fa;
     font-weight:bold;
-    font-size:13px
+    font-size:10px;
   }
 
   .print-notes{
     white-space:pre-wrap;
-    font-size:10px;
-    line-height:1.5;
+    font-size:9px;
+    line-height:1.4;
     border:1px solid #ddd;
-    padding:10px;
-    min-height:40px
+    padding:8px;
+    min-height:35px;
   }
 
   .print-footer{
-    margin-top:25px;
-    padding-top:8px;
+    margin-top:20px;
+    padding-top:7px;
     border-top:1px solid #ccc;
-    font-size:8px;
+    font-size:7px;
     color:#666;
-    text-align:center
+    text-align:center;
   }
-
 }
 
 
@@ -520,15 +540,25 @@ textarea{
 
   .grid,
   .home-grid{
-    grid-template-columns:1fr
+    grid-template-columns:1fr;
   }
 
   .actions{
-    flex-direction:column
+    flex-direction:column;
   }
 
-  .test-results{
-    grid-template-columns:1fr 1fr
+  .test-table th{
+    font-size:9px;
+    padding:7px 1px;
+  }
+
+  .test-table td{
+    padding:3px 2px;
+  }
+
+  .test-table input{
+    font-size:12px;
+    padding:9px 1px;
   }
 
 }
@@ -571,11 +601,10 @@ Capture the site information accurately.
 Let the specialised software do the engineering calculations.
 </p>
 
-
 <div class="home-grid">
 
 <button class="big-card"
-        onclick="newTest()">
+onclick="newTest()">
 
 <div class="icon">＋</div>
 
@@ -589,7 +618,7 @@ Capture a new room
 
 
 <button class="big-card"
-        onclick="show('saved')">
+onclick="show('saved')">
 
 <div class="icon">▣</div>
 
@@ -607,7 +636,7 @@ View completed records
 
 
 
-<!-- NEW TEST -->
+<!-- TEST -->
 
 <section id="test" class="screen">
 
@@ -625,7 +654,7 @@ Enter the information exactly as measured on site.
 </div>
 
 <button class="btn ghost"
-        onclick="show('home')">
+onclick="show('home')">
 
 Cancel
 
@@ -635,22 +664,20 @@ Cancel
 
 
 
-<!-- 1 SITE DETAILS -->
+<!-- SITE DETAILS -->
 
 <div class="card">
 
 <h2>1 · Site Details</h2>
 
-
 <div class="grid">
-
 
 <div class="field">
 
 <label>Date</label>
 
 <input id="date"
-       type="date">
+type="date">
 
 </div>
 
@@ -660,7 +687,7 @@ Cancel
 <label>Technician</label>
 
 <input id="technician"
-       placeholder="Name">
+placeholder="Name">
 
 </div>
 
@@ -670,7 +697,7 @@ Cancel
 <label>Customer</label>
 
 <input id="customer"
-       placeholder="Customer">
+placeholder="Customer">
 
 </div>
 
@@ -680,10 +707,9 @@ Cancel
 <label>Site</label>
 
 <input id="site"
-       placeholder="Site name">
+placeholder="Site name">
 
 </div>
-
 
 </div>
 
@@ -693,7 +719,7 @@ Cancel
 <label>Building / Area</label>
 
 <input id="area"
-       placeholder="Building, floor or area">
+placeholder="Building, floor or area">
 
 </div>
 
@@ -701,22 +727,20 @@ Cancel
 
 
 
-<!-- 2 ROOM SYSTEM -->
+<!-- ROOM SYSTEM -->
 
 <div class="card">
 
 <h2>2 · Room & System</h2>
 
-
 <div class="grid">
-
 
 <div class="field">
 
 <label>Room name / number</label>
 
 <input id="room"
-       placeholder="e.g. Server Room 01">
+placeholder="e.g. Server Room 01">
 
 </div>
 
@@ -743,7 +767,7 @@ Cancel
 <label>Gas type</label>
 
 <input id="gas"
-       placeholder="e.g. FK-5-1-12">
+placeholder="e.g. FK-5-1-12">
 
 </div>
 
@@ -753,10 +777,10 @@ Cancel
 <label>Gas weight (kg)</label>
 
 <input id="gasWeight"
-       type="number"
-       min="0"
-       step="0.01"
-       placeholder="0.00">
+type="number"
+min="0"
+step="0.01"
+placeholder="0.00">
 
 </div>
 
@@ -766,24 +790,22 @@ Cancel
 <label>Protection Height (m)</label>
 
 <input id="protectionHeight"
-       type="number"
-       min="0"
-       step="0.01"
-       placeholder="0.00">
-
-</div>
-
+type="number"
+min="0"
+step="0.01"
+placeholder="0.00">
 
 </div>
 
 </div>
 
+</div>
 
 
-<!-- 3 ROOM DIMENSIONS -->
+
+<!-- ROOM DIMENSIONS -->
 
 <div class="card">
-
 
 <div class="row between">
 
@@ -791,16 +813,14 @@ Cancel
 3 · Room Dimensions
 </h2>
 
-
 <button class="btn secondary"
-        onclick="addSection()">
+onclick="addSection()">
 
 ＋ Add Section
 
 </button>
 
 </div>
-
 
 <p class="small">
 
@@ -809,9 +829,7 @@ The app calculates the volume only.
 
 </p>
 
-
 <div id="sections"></div>
-
 
 <div class="total">
 
@@ -820,10 +838,8 @@ TOTAL ROOM VOLUME
 </div>
 
 <div class="num"
-     id="totalVolume">
-
+id="totalVolume">
 0.00 m³
-
 </div>
 
 </div>
@@ -832,7 +848,7 @@ TOTAL ROOM VOLUME
 
 
 
-<!-- 4 PRESSURIZATION -->
+<!-- PRESSURIZATION -->
 
 <div class="card">
 
@@ -840,22 +856,212 @@ TOTAL ROOM VOLUME
 4 · Pressurization Test
 </h2>
 
+<p class="small test-description">
 
-<p class="small test-note">
-
-Enter the fan setting and actual measured result
-for each pressure point.
+Enter the fan setting and the actual measured result
+at each pressure point.
 
 </p>
 
 
 <div class="test-block">
 
-<div class="test-heading">
+<div class="test-title">
 Pressurization
 </div>
 
-<div id="pressurizationTests"></div>
+
+<table class="test-table">
+
+<thead>
+
+<tr>
+
+<th>Fan Setting</th>
+
+<th>12</th>
+
+<th>24</th>
+
+<th>36</th>
+
+<th>48</th>
+
+<th>60</th>
+
+</tr>
+
+</thead>
+
+
+<tbody>
+
+<tr>
+
+<td>
+<input id="press-fan-1"
+type="text"
+placeholder="Fan">
+</td>
+
+<td>
+<input id="press-1-12"
+type="text"
+inputmode="decimal">
+</td>
+
+<td>
+<input id="press-1-24"
+type="text"
+inputmode="decimal">
+</td>
+
+<td>
+<input id="press-1-36"
+type="text"
+inputmode="decimal">
+</td>
+
+<td>
+<input id="press-1-48"
+type="text"
+inputmode="decimal">
+</td>
+
+<td>
+<input id="press-1-60"
+type="text"
+inputmode="decimal">
+</td>
+
+</tr>
+
+
+<tr>
+
+<td>
+<input id="press-fan-2"
+type="text"
+placeholder="Fan">
+</td>
+
+<td>
+<input id="press-2-12"
+type="text"
+inputmode="decimal">
+</td>
+
+<td>
+<input id="press-2-24"
+type="text"
+inputmode="decimal">
+</td>
+
+<td>
+<input id="press-2-36"
+type="text"
+inputmode="decimal">
+</td>
+
+<td>
+<input id="press-2-48"
+type="text"
+inputmode="decimal">
+</td>
+
+<td>
+<input id="press-2-60"
+type="text"
+inputmode="decimal">
+</td>
+
+</tr>
+
+
+<tr>
+
+<td>
+<input id="press-fan-3"
+type="text"
+placeholder="Fan">
+</td>
+
+<td>
+<input id="press-3-12"
+type="text"
+inputmode="decimal">
+</td>
+
+<td>
+<input id="press-3-24"
+type="text"
+inputmode="decimal">
+</td>
+
+<td>
+<input id="press-3-36"
+type="text"
+inputmode="decimal">
+</td>
+
+<td>
+<input id="press-3-48"
+type="text"
+inputmode="decimal">
+</td>
+
+<td>
+<input id="press-3-60"
+type="text"
+inputmode="decimal">
+</td>
+
+</tr>
+
+
+<tr>
+
+<td>
+<input id="press-fan-4"
+type="text"
+placeholder="Fan">
+</td>
+
+<td>
+<input id="press-4-12"
+type="text"
+inputmode="decimal">
+</td>
+
+<td>
+<input id="press-4-24"
+type="text"
+inputmode="decimal">
+</td>
+
+<td>
+<input id="press-4-36"
+type="text"
+inputmode="decimal">
+</td>
+
+<td>
+<input id="press-4-48"
+type="text"
+inputmode="decimal">
+</td>
+
+<td>
+<input id="press-4-60"
+type="text"
+inputmode="decimal">
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
 
 </div>
 
@@ -863,7 +1069,7 @@ Pressurization
 
 
 
-<!-- 5 DEPRESSURIZATION -->
+<!-- DEPRESSURIZATION -->
 
 <div class="card">
 
@@ -871,22 +1077,213 @@ Pressurization
 5 · Depressurization Test
 </h2>
 
+<p class="small test-description">
 
-<p class="small test-note">
-
-Enter the fan setting and actual measured result
-for each pressure point.
+Enter the fan setting and the actual measured result
+at each pressure point.
 
 </p>
 
 
 <div class="test-block">
 
-<div class="test-heading">
+<div class="test-title">
 Depressurization
 </div>
 
-<div id="depressurizationTests"></div>
+
+<table class="test-table">
+
+<thead>
+
+<tr>
+
+<th>Fan Setting</th>
+
+<th>-12</th>
+
+<th>-24</th>
+
+<th>-36</th>
+
+<th>-48</th>
+
+<th>-60</th>
+
+</tr>
+
+</thead>
+
+
+<tbody>
+
+
+<tr>
+
+<td>
+<input id="depress-fan-1"
+type="text"
+placeholder="Fan">
+</td>
+
+<td>
+<input id="depress-1-12"
+type="text"
+inputmode="decimal">
+</td>
+
+<td>
+<input id="depress-1-24"
+type="text"
+inputmode="decimal">
+</td>
+
+<td>
+<input id="depress-1-36"
+type="text"
+inputmode="decimal">
+</td>
+
+<td>
+<input id="depress-1-48"
+type="text"
+inputmode="decimal">
+</td>
+
+<td>
+<input id="depress-1-60"
+type="text"
+inputmode="decimal">
+</td>
+
+</tr>
+
+
+<tr>
+
+<td>
+<input id="depress-fan-2"
+type="text"
+placeholder="Fan">
+</td>
+
+<td>
+<input id="depress-2-12"
+type="text"
+inputmode="decimal">
+</td>
+
+<td>
+<input id="depress-2-24"
+type="text"
+inputmode="decimal">
+</td>
+
+<td>
+<input id="depress-2-36"
+type="text"
+inputmode="decimal">
+</td>
+
+<td>
+<input id="depress-2-48"
+type="text"
+inputmode="decimal">
+</td>
+
+<td>
+<input id="depress-2-60"
+type="text"
+inputmode="decimal">
+</td>
+
+</tr>
+
+
+<tr>
+
+<td>
+<input id="depress-fan-3"
+type="text"
+placeholder="Fan">
+</td>
+
+<td>
+<input id="depress-3-12"
+type="text"
+inputmode="decimal">
+</td>
+
+<td>
+<input id="depress-3-24"
+type="text"
+inputmode="decimal">
+</td>
+
+<td>
+<input id="depress-3-36"
+type="text"
+inputmode="decimal">
+</td>
+
+<td>
+<input id="depress-3-48"
+type="text"
+inputmode="decimal">
+</td>
+
+<td>
+<input id="depress-3-60"
+type="text"
+inputmode="decimal">
+</td>
+
+</tr>
+
+
+<tr>
+
+<td>
+<input id="depress-fan-4"
+type="text"
+placeholder="Fan">
+</td>
+
+<td>
+<input id="depress-4-12"
+type="text"
+inputmode="decimal">
+</td>
+
+<td>
+<input id="depress-4-24"
+type="text"
+inputmode="decimal">
+</td>
+
+<td>
+<input id="depress-4-36"
+type="text"
+inputmode="decimal">
+</td>
+
+<td>
+<input id="depress-4-48"
+type="text"
+inputmode="decimal">
+</td>
+
+<td>
+<input id="depress-4-60"
+type="text"
+inputmode="decimal">
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
 
 </div>
 
@@ -894,14 +1291,13 @@ Depressurization
 
 
 
-<!-- 6 EVIDENCE -->
+<!-- EVIDENCE -->
 
 <div class="card">
 
 <h2>
 6 · Evidence
 </h2>
-
 
 <div class="field">
 
@@ -910,29 +1306,28 @@ Site / room photos
 </label>
 
 <input id="photos"
-       type="file"
-       accept="image/*"
-       capture="environment"
-       multiple
-       onchange="previewPhotos(event)">
+type="file"
+accept="image/*"
+capture="environment"
+multiple
+onchange="previewPhotos(event)">
 
 </div>
 
-
 <div id="photoPreview"
-     class="photo-grid">
+class="photo-grid">
 </div>
 
 
 <div class="field"
-     style="margin-top:12px">
+style="margin-top:12px">
 
 <label>
 Notes
 </label>
 
 <textarea id="notes"
-          placeholder="Anything unusual or relevant on site..."></textarea>
+placeholder="Anything unusual or relevant on site..."></textarea>
 
 </div>
 
@@ -940,7 +1335,7 @@ Notes
 
 
 
-<!-- 7 REVIEW -->
+<!-- REVIEW -->
 
 <div class="card">
 
@@ -948,28 +1343,23 @@ Notes
 7 · Review
 </h2>
 
-
 <div id="review"></div>
-
 
 <div class="actions">
 
-
 <button class="btn secondary"
-        onclick="updateReview()">
+onclick="updateReview()">
 
 Refresh Review
 
 </button>
 
-
 <button class="btn primary"
-        onclick="saveTest()">
+onclick="saveTest()">
 
 Save Test & PDF
 
 </button>
-
 
 </div>
 
@@ -980,10 +1370,9 @@ Save Test & PDF
 
 
 
-<!-- SAVED TESTS -->
+<!-- SAVED -->
 
 <section id="saved" class="screen">
-
 
 <div class="row between">
 
@@ -999,9 +1388,8 @@ Records stored on this device.
 
 </div>
 
-
 <button class="btn ghost"
-        onclick="show('home')">
+onclick="show('home')">
 
 Home
 
@@ -1023,18 +1411,17 @@ Home
 
 
 <div id="bottom"
-     class="bottom"
-     style="display:none">
+class="bottom"
+style="display:none">
 
 <button class="btn primary"
-        onclick="updateReview()">
+onclick="updateReview()">
 
 Review current test
 
 </button>
 
 </div>
-
 
 </div>
 
@@ -1048,8 +1435,6 @@ Review current test
 
 <script>
 
-
-/* GLOBAL DATA */
 
 let sections = [];
 
@@ -1071,15 +1456,12 @@ document
 s => s.classList.remove('active')
 );
 
-
 $(id).classList.add('active');
-
 
 $('bottom').style.display =
 id === 'test'
 ? 'block'
 : 'none';
-
 
 if(id === 'saved'){
 renderSaved();
@@ -1098,11 +1480,12 @@ sections = [];
 photoData = [];
 
 
-/* Clear existing fields */
+/* Clear all fields */
 
 document
-.querySelectorAll('input, textarea')
-.forEach(e => {
+.querySelectorAll('input,textarea')
+.forEach(
+e => {
 
 if(e.type !== 'file'){
 e.value = '';
@@ -1111,17 +1494,13 @@ e.value = '';
 });
 
 
-/* Defaults */
-
 $('date').value =
 new Date()
 .toISOString()
 .slice(0,10);
 
-
 $('roomType').value =
 'Server Room';
-
 
 $('photoPreview').innerHTML = '';
 
@@ -1129,150 +1508,17 @@ $('sections').innerHTML = '';
 
 
 /*
-IMPORTANT:
-Create the testing inputs FIRST.
-This prevents updateReview() from
-trying to read fields that don't
-exist yet.
+Create the first room section.
+The test fields already exist in
+the HTML, so there is no missing
+element problem.
 */
-
-createTestTables();
-
-
-/* Now create first room section */
 
 addSection();
 
-
-/* Update review */
-
 updateReview();
 
-
-/* Show screen */
-
 show('test');
-
-}
-
-
-
-/* CREATE TEST TABLES */
-
-function createTestTables(){
-
-createTestRows(
-'pressurizationTests',
-[
-'+12',
-'+24',
-'+36',
-'+48',
-'+60'
-],
-'press'
-);
-
-
-createTestRows(
-'depressurizationTests',
-[
-'-12',
-'-24',
-'-36',
-'-48',
-'-60'
-],
-'depress'
-);
-
-}
-
-
-
-/* CREATE TEST ROWS */
-
-function createTestRows(
-containerId,
-pressures,
-prefix
-){
-
-const container =
-$(containerId);
-
-
-if(!container){
-return;
-}
-
-
-container.innerHTML = '';
-
-
-for(let i=1;i<=4;i++){
-
-const row =
-document.createElement('div');
-
-
-row.className =
-'test-row';
-
-
-row.innerHTML = `
-
-<div class="test-row-title">
-
-Test ${i}
-
-</div>
-
-
-<div class="field">
-
-<label>
-Fan Setting
-</label>
-
-<input
-type="text"
-id="${prefix}-fan-${i}"
-placeholder="Enter fan setting">
-
-</div>
-
-
-<div class="test-results">
-
-${pressures.map(
-(pressure,index) => `
-
-<div class="test-result">
-
-<label>
-${pressure}
-</label>
-
-<input
-type="text"
-id="${prefix}-${i}-${index}"
-inputmode="decimal"
-placeholder="Actual result">
-
-</div>
-
-`
-).join('')}
-
-</div>
-
-`;
-
-
-container.appendChild(row);
-
-}
 
 }
 
@@ -1286,7 +1532,6 @@ const id =
 Date.now() +
 Math.random();
 
-
 sections.push({
 id:id,
 l:0,
@@ -1298,10 +1543,8 @@ h:0
 const wrap =
 document.createElement('div');
 
-
 wrap.className =
 'section';
-
 
 wrap.id =
 'sec-' + id;
@@ -1315,9 +1558,8 @@ wrap.innerHTML = `
 Section ${sections.length}
 </span>
 
-
 <button class="btn danger"
-        onclick="removeSection('${id}')">
+onclick="removeSection('${id}')">
 
 Remove
 
@@ -1327,7 +1569,6 @@ Remove
 
 
 <div class="grid">
-
 
 <div class="field">
 
@@ -1373,12 +1614,11 @@ oninput="setDim('${id}','h',this.value)">
 
 </div>
 
-
 </div>
 
 
 <div class="volume"
-     id="vol-${id}">
+id="vol-${id}">
 
 Volume: 0.00 m³
 
@@ -1390,36 +1630,24 @@ Volume: 0.00 m³
 $('sections')
 .appendChild(wrap);
 
-
-/*
-Do not calculate test data here.
-Only room volume.
-*/
-
 updateTotal();
 
 }
 
 
 
-/* ROOM DIMENSIONS */
+/* DIMENSIONS */
 
-function setDim(
-id,
-key,
-val
-){
+function setDim(id,key,val){
 
 const s =
 sections.find(
 x => x.id == id
 );
 
-
 if(!s){
 return;
 }
-
 
 s[key] =
 parseFloat(val) || 0;
@@ -1444,7 +1672,7 @@ updateTotal();
 
 
 
-/* REMOVE ROOM SECTION */
+/* REMOVE SECTION */
 
 function removeSection(id){
 
@@ -1456,7 +1684,6 @@ x => x.id != id
 
 const element =
 $('sec-' + id);
-
 
 if(element){
 element.remove();
@@ -1482,7 +1709,7 @@ updateTotal();
 
 
 
-/* TOTAL ROOM VOLUME */
+/* TOTAL */
 
 function total(){
 
@@ -1505,7 +1732,6 @@ $('totalVolume')
 total().toFixed(2) +
 ' m³';
 
-
 updateReview();
 
 }
@@ -1525,11 +1751,11 @@ $('photoPreview').innerHTML = '';
 .forEach(
 f => {
 
-const r =
+const reader =
 new FileReader();
 
 
-r.onload =
+reader.onload =
 x => {
 
 photoData.push(
@@ -1539,7 +1765,6 @@ x.target.result
 
 const img =
 document.createElement('img');
-
 
 img.src =
 x.target.result;
@@ -1551,7 +1776,7 @@ $('photoPreview')
 };
 
 
-r.readAsDataURL(f);
+reader.readAsDataURL(f);
 
 });
 
@@ -1559,13 +1784,12 @@ r.readAsDataURL(f);
 
 
 
-/* VALUE HELPER */
+/* VALUE */
 
 function val(id){
 
 const element =
 $(id);
-
 
 return element
 ? element.value.trim()
@@ -1575,7 +1799,7 @@ return element
 
 
 
-/* COLLECT TEST RESULTS */
+/* GET TEST ROWS */
 
 function collectTestResults(
 prefix,
@@ -1611,7 +1835,7 @@ results:{}
 
 
 pressures.forEach(
-(pressure,index) => {
+pressure => {
 
 const input =
 $(
@@ -1619,9 +1843,8 @@ prefix +
 '-' +
 i +
 '-' +
-index
+pressure.replace('+','')
 );
-
 
 row.results[pressure] =
 input
@@ -1672,23 +1895,21 @@ collectTestResults(
 );
 
 
-const pressEntered =
+const pressRows =
 press.filter(
 x =>
 x.fanSetting ||
-Object.values(
-x.results
-).some(v => v)
+Object.values(x.results)
+.some(v => v)
 ).length;
 
 
-const depressEntered =
+const depressRows =
 depress.filter(
 x =>
 x.fanSetting ||
-Object.values(
-x.results
-).some(v => v)
+Object.values(x.results)
+.some(v => v)
 ).length;
 
 
@@ -1722,35 +1943,30 @@ val('gas')
 [
 'Gas weight',
 val('gasWeight')
-? val('gasWeight') +
-' kg'
+? val('gasWeight') + ' kg'
 : ''
 ],
 
 [
 'Protection Height',
 val('protectionHeight')
-? val('protectionHeight') +
-' m'
+? val('protectionHeight') + ' m'
 : ''
 ],
 
 [
 'Total volume',
-total().toFixed(2) +
-' m³'
+total().toFixed(2) + ' m³'
 ],
 
 [
 'Pressurization rows',
-pressEntered +
-' / 4'
+pressRows + ' / 4'
 ],
 
 [
 'Depressurization rows',
-depressEntered +
-' / 4'
+depressRows + ' / 4'
 ]
 
 ];
@@ -1768,17 +1984,11 @@ border-bottom:1px solid var(--line)
 ">
 
 <span class="small">
-
 ${escapeHTML(x[0])}
-
 </span>
 
 <strong>
-
-${escapeHTML(
-x[1] || '—'
-)}
-
+${escapeHTML(x[1] || '—')}
 </strong>
 
 </div>
@@ -1790,41 +2000,31 @@ x[1] || '—'
 
 
 
-/* COLLECT COMPLETE TEST */
+/* COLLECT */
 
 function collect(){
 
 return {
 
-id:
-Date.now(),
+id:Date.now(),
 
-date:
-val('date'),
+date:val('date'),
 
-technician:
-val('technician'),
+technician:val('technician'),
 
-customer:
-val('customer'),
+customer:val('customer'),
 
-site:
-val('site'),
+site:val('site'),
 
-area:
-val('area'),
+area:val('area'),
 
-room:
-val('room'),
+room:val('room'),
 
-roomType:
-val('roomType'),
+roomType:val('roomType'),
 
-gas:
-val('gas'),
+gas:val('gas'),
 
-gasWeight:
-val('gasWeight'),
+gasWeight:val('gasWeight'),
 
 protectionHeight:
 val('protectionHeight'),
@@ -1840,8 +2040,7 @@ h:s.h
 ),
 
 
-total:
-total(),
+total:total(),
 
 
 pressurization:
@@ -1873,7 +2072,6 @@ collectTestResults(
 notes:
 val('notes'),
 
-
 photos:
 photoData
 
@@ -1883,7 +2081,7 @@ photoData
 
 
 
-/* SAVE TEST */
+/* SAVE */
 
 function saveTest(){
 
@@ -1925,7 +2123,7 @@ window.print();
 
 
 
-/* GENERATE PRINT REPORT */
+/* PRINT REPORT */
 
 function generatePrintReport(data){
 
@@ -1938,7 +2136,7 @@ let html = `
 <div class="print-header">
 
 <div class="print-title">
-INTEGRITY FIELD
+Morimi Fire Integrity
 </div>
 
 <div class="print-subtitle">
@@ -1954,33 +2152,17 @@ Fire Suppression Integrity Test
 1. SITE DETAILS
 </div>
 
-
 <div class="print-grid">
 
-${printField(
-'Date',
-data.date
-)}
+${printField('Date',data.date)}
 
-${printField(
-'Technician',
-data.technician
-)}
+${printField('Technician',data.technician)}
 
-${printField(
-'Customer',
-data.customer
-)}
+${printField('Customer',data.customer)}
 
-${printField(
-'Site',
-data.site
-)}
+${printField('Site',data.site)}
 
-${printField(
-'Building / Area',
-data.area
-)}
+${printField('Building / Area',data.area)}
 
 </div>
 
@@ -1994,37 +2176,25 @@ data.area
 2. ROOM & SYSTEM
 </div>
 
-
 <div class="print-grid">
 
-${printField(
-'Room',
-data.room
-)}
+${printField('Room',data.room)}
 
-${printField(
-'Room Type',
-data.roomType
-)}
+${printField('Room Type',data.roomType)}
 
-${printField(
-'Gas Type',
-data.gas
-)}
+${printField('Gas Type',data.gas)}
 
 ${printField(
 'Gas Weight',
 data.gasWeight
-? data.gasWeight +
-' kg'
+? data.gasWeight + ' kg'
 : ''
 )}
 
 ${printField(
 'Protection Height',
 data.protectionHeight
-? data.protectionHeight +
-' m'
+? data.protectionHeight + ' m'
 : ''
 )}
 
@@ -2057,7 +2227,6 @@ data.protectionHeight
 
 </thead>
 
-
 <tbody>
 `;
 
@@ -2075,25 +2244,15 @@ html += `
 
 <tr>
 
-<td>
-${index+1}
-</td>
+<td>${index+1}</td>
 
-<td>
-${Number(s.l).toFixed(2)}
-</td>
+<td>${Number(s.l).toFixed(2)}</td>
 
-<td>
-${Number(s.w).toFixed(2)}
-</td>
+<td>${Number(s.w).toFixed(2)}</td>
 
-<td>
-${Number(s.h).toFixed(2)}
-</td>
+<td>${Number(s.h).toFixed(2)}</td>
 
-<td>
-${volume.toFixed(2)}
-</td>
+<td>${volume.toFixed(2)}</td>
 
 </tr>
 
@@ -2112,8 +2271,7 @@ html += `
 <div class="print-total">
 
 TOTAL ROOM VOLUME:
-${Number(data.total).toFixed(2)}
-m³
+${Number(data.total).toFixed(2)} m³
 
 </div>
 
@@ -2124,11 +2282,8 @@ m³
 <div class="print-section">
 
 <div class="print-section-title">
-
 4. PRESSURIZATION TEST
-
 </div>
-
 
 ${printTestTable(
 data.pressurization,
@@ -2148,11 +2303,8 @@ data.pressurization,
 <div class="print-section">
 
 <div class="print-section-title">
-
 5. DEPRESSURIZATION TEST
-
 </div>
-
 
 ${printTestTable(
 data.depressurization,
@@ -2172,17 +2324,13 @@ data.depressurization,
 <div class="print-section">
 
 <div class="print-section-title">
-
 6. NOTES
-
 </div>
-
 
 <div class="print-notes">
 
 ${escapeHTML(
-data.notes ||
-'None'
+data.notes || 'None'
 )}
 
 </div>
@@ -2193,7 +2341,7 @@ data.notes ||
 
 <div class="print-footer">
 
-Integrity Field · Fire suppression integrity test
+Morimi Fire Integrity · Fire suppression integrity test
 
 </div>
 
@@ -2209,28 +2357,18 @@ html;
 
 /* PRINT FIELD */
 
-function printField(
-label,
-value
-){
+function printField(label,value){
 
 return `
 
 <div class="print-field">
 
 <span class="print-label">
-
 ${escapeHTML(label)}:
-
 </span>
 
 <span class="print-value">
-
-${escapeHTML(
-value ||
-'—'
-)}
-
+${escapeHTML(value || '—')}
 </span>
 
 </div>
@@ -2249,7 +2387,7 @@ pressures
 ){
 
 if(!tests){
-return '<p>No test data recorded.</p>';
+return '';
 }
 
 
@@ -2261,42 +2399,31 @@ let html = `
 
 <tr>
 
-<th>Test</th>
-
 <th>Fan Setting</th>
 
 ${pressures.map(
-p =>
-`<th>${p}</th>`
+p => `<th>${p}</th>`
 ).join('')}
 
 </tr>
 
 </thead>
 
-
 <tbody>
+
 `;
 
 
 tests.forEach(
-(test,index) => {
+test => {
 
 html += `
 
 <tr>
 
 <td>
-${index+1}
+${escapeHTML(test.fanSetting || '')}
 </td>
-
-<td>
-${escapeHTML(
-test.fanSetting ||
-''
-)}
-</td>
-
 
 ${pressures.map(
 p => `
@@ -2335,7 +2462,7 @@ return html;
 
 
 
-/* SAVED TESTS */
+/* SAVED */
 
 function renderSaved(){
 
@@ -2358,26 +2485,19 @@ arr.map(
 
 <div class="saved-item">
 
-
 <div class="row between">
 
 <strong>
-
 ${escapeHTML(
-x.room ||
-'Unnamed room'
+x.room || 'Unnamed room'
 )}
-
 </strong>
-
 
 <span class="badge">
 
 ${Number(
-x.total ||
-0
-).toFixed(2)}
-m³
+x.total || 0
+).toFixed(2)} m³
 
 </span>
 
@@ -2387,22 +2507,19 @@ m³
 <div class="small">
 
 ${escapeHTML(
-x.customer ||
-'No customer'
+x.customer || 'No customer'
 )}
 
 ·
 
 ${escapeHTML(
-x.site ||
-'No site'
+x.site || 'No site'
 )}
 
 ·
 
 ${escapeHTML(
-x.date ||
-''
+x.date || ''
 )}
 
 </div>
@@ -2415,21 +2532,15 @@ style="margin-top:4px">
 Protection Height:
 
 ${escapeHTML(
-x.protectionHeight ||
-'—'
+x.protectionHeight || '—'
 )}
 
-${
-x.protectionHeight
-? ' m'
-: ''
-}
+${x.protectionHeight ? ' m' : ''}
 
 </div>
 
 
 <div class="actions">
-
 
 <button
 class="btn secondary"
@@ -2457,9 +2568,7 @@ Delete
 
 </button>
 
-
 </div>
-
 
 </div>
 
@@ -2469,16 +2578,14 @@ Delete
 :
 
 `<div class="empty">
-
 No saved tests yet.
-
 </div>`;
 
 }
 
 
 
-/* VIEW SAVED TEST */
+/* VIEW */
 
 function viewSaved(i){
 
@@ -2499,10 +2606,7 @@ return;
 }
 
 
-let text = `
-
-TEST RECORD
-
+let text = `TEST RECORD
 
 Customer: ${x.customer || '-'}
 
@@ -2528,36 +2632,27 @@ Date: ${x.date || '-'}
 
 
 PRESSURIZATION TEST
-
 `;
 
 
 if(x.pressurization){
 
 x.pressurization.forEach(
-(t,index) => {
+(test,index) => {
 
 text += `
 
-Test ${index+1}
+Fan Setting: ${test.fanSetting || '-'}
 
-Fan Setting:
-${t.fanSetting || '-'}
+12: ${test.results['+12'] || '-'}
 
-+12:
-${t.results['+12'] || '-'}
+24: ${test.results['+24'] || '-'}
 
-+24:
-${t.results['+24'] || '-'}
+36: ${test.results['+36'] || '-'}
 
-+36:
-${t.results['+36'] || '-'}
+48: ${test.results['+48'] || '-'}
 
-+48:
-${t.results['+48'] || '-'}
-
-+60:
-${t.results['+60'] || '-'}
+60: ${test.results['+60'] || '-'}
 
 `;
 
@@ -2569,36 +2664,27 @@ ${t.results['+60'] || '-'}
 text += `
 
 DEPRESSURIZATION TEST
-
 `;
 
 
 if(x.depressurization){
 
 x.depressurization.forEach(
-(t,index) => {
+(test,index) => {
 
 text += `
 
-Test ${index+1}
+Fan Setting: ${test.fanSetting || '-'}
 
-Fan Setting:
-${t.fanSetting || '-'}
+-12: ${test.results['-12'] || '-'}
 
--12:
-${t.results['-12'] || '-'}
+-24: ${test.results['-24'] || '-'}
 
--24:
-${t.results['-24'] || '-'}
+-36: ${test.results['-36'] || '-'}
 
--36:
-${t.results['-36'] || '-'}
+-48: ${test.results['-48'] || '-'}
 
--48:
-${t.results['-48'] || '-'}
-
--60:
-${t.results['-60'] || '-'}
+-60: ${test.results['-60'] || '-'}
 
 `;
 
@@ -2621,7 +2707,7 @@ alert(text);
 
 
 
-/* PRINT SAVED TEST */
+/* PRINT SAVED */
 
 function printSaved(i){
 
@@ -2659,7 +2745,7 @@ window.print();
 
 
 
-/* DELETE SAVED TEST */
+/* DELETE */
 
 function deleteSaved(i){
 
@@ -2690,9 +2776,7 @@ renderSaved();
 
 function escapeHTML(value){
 
-return String(
-value ?? ''
-)
+return String(value ?? '')
 .replace(/&/g,'&amp;')
 .replace(/</g,'&lt;')
 .replace(/>/g,'&gt;')
@@ -2704,8 +2788,6 @@ value ?? ''
 </script>
 
 
-
-<!-- SERVICE WORKER -->
 
 <script>
 
