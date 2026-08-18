@@ -1,4 +1,4 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -7,6 +7,10 @@
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icon-192.png">
 <title>Integrity Field</title>
+
+<!-- PDF generation library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.2/jspdf.umd.min.js"></script>
+
 <style>
 :root{
   --bg:#f3f6f7; --card:#fff; --ink:#17232b; --muted:#687780;
@@ -58,114 +62,1041 @@ textarea{min-height:92px;resize:vertical}
 @media(max-width:520px){.grid,.home-grid{grid-template-columns:1fr}.actions{flex-direction:column}}
 </style>
 </head>
+
 <body>
 <div class="app">
-<header><div class="brand">Integrity Field</div><div class="subtitle">Fire suppression integrity test · field data capture</div></header>
+
+<header>
+  <div class="brand">Integrity Field</div>
+  <div class="subtitle">Fire suppression integrity test · field data capture</div>
+</header>
+
 <main>
+
 <section id="home" class="screen active">
-  <h1>Field Capture</h1><p class="lead">Capture the site information accurately. Let the specialised software do the engineering calculations.</p>
+  <h1>Field Capture</h1>
+  <p class="lead">Capture the site information accurately. Let the specialised software do the engineering calculations.</p>
+
   <div class="home-grid">
-    <button class="big-card" onclick="newTest()"><div class="icon">＋</div><strong>New Test</strong><span class="small">Capture a new room</span></button>
-    <button class="big-card" onclick="show('saved')"><div class="icon">▣</div><strong>Saved Tests</strong><span class="small">View completed records</span></button>
+    <button class="big-card" onclick="newTest()">
+      <div class="icon">＋</div>
+      <strong>New Test</strong>
+      <span class="small">Capture a new room</span>
+    </button>
+
+    <button class="big-card" onclick="show('saved')">
+      <div class="icon">▣</div>
+      <strong>Saved Tests</strong>
+      <span class="small">View completed records</span>
+    </button>
   </div>
 </section>
+
 
 <section id="test" class="screen">
-  <div class="row between"><div><h1>New Test</h1><p class="lead">Enter the information exactly as measured on site.</p></div><button class="btn ghost" onclick="show('home')">Cancel</button></div>
 
-  <div class="card"><h2>1 · Site Details</h2>
-    <div class="grid">
-      <div class="field"><label>Date</label><input id="date" type="date"></div>
-      <div class="field"><label>Technician</label><input id="technician" placeholder="Name"></div>
-      <div class="field"><label>Customer</label><input id="customer" placeholder="Customer"></div>
-      <div class="field"><label>Site</label><input id="site" placeholder="Site name"></div>
+  <div class="row between">
+    <div>
+      <h1>New Test</h1>
+      <p class="lead">Enter the information exactly as measured on site.</p>
     </div>
-    <div class="field"><label>Building / Area</label><input id="area" placeholder="Building, floor or area"></div>
+    <button class="btn ghost" onclick="show('home')">Cancel</button>
   </div>
 
-  <div class="card"><h2>2 · Room & System</h2>
+
+  <div class="card">
+    <h2>1 · Site Details</h2>
+
     <div class="grid">
-      <div class="field"><label>Room name / number</label><input id="room" placeholder="e.g. Server Room 01"></div>
-      <div class="field"><label>Room type</label><select id="roomType"><option>Server Room</option><option>Data Room</option><option>Battery Room</option><option>Substation</option><option>Other</option></select></div>
-      <div class="field"><label>Gas type</label><input id="gas" placeholder="e.g. FK-5-1-12"></div>
-      <div class="field"><label>Gas weight (kg)</label><input id="gasWeight" type="number" min="0" step="0.01" placeholder="0.00"></div>
+
+      <div class="field">
+        <label>Date</label>
+        <input id="date" type="date">
+      </div>
+
+      <div class="field">
+        <label>Technician</label>
+        <input id="technician" placeholder="Name">
+      </div>
+
+      <div class="field">
+        <label>Customer</label>
+        <input id="customer" placeholder="Customer">
+      </div>
+
+      <div class="field">
+        <label>Site</label>
+        <input id="site" placeholder="Site name">
+      </div>
+
+    </div>
+
+    <div class="field">
+      <label>Building / Area</label>
+      <input id="area" placeholder="Building, floor or area">
     </div>
   </div>
 
-  <div class="card"><div class="row between"><h2>3 · Room Dimensions</h2><button class="btn secondary" onclick="addSection()">＋ Add Section</button></div>
-    <p class="small">Enter each rectangular section measured on site. The app calculates the volume only.</p>
+
+  <div class="card">
+    <h2>2 · Room & System</h2>
+
+    <div class="grid">
+
+      <div class="field">
+        <label>Room name / number</label>
+        <input id="room" placeholder="e.g. Server Room 01">
+      </div>
+
+      <div class="field">
+        <label>Room type</label>
+        <select id="roomType">
+          <option>Server Room</option>
+          <option>Data Room</option>
+          <option>Battery Room</option>
+          <option>Substation</option>
+          <option>Other</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label>Gas type</label>
+        <input id="gas" placeholder="e.g. FK-5-1-12">
+      </div>
+
+      <div class="field">
+        <label>Gas weight (kg)</label>
+        <input id="gasWeight" type="number" min="0" step="0.01" placeholder="0.00">
+      </div>
+
+      <div class="field">
+        <label>Protection Height (m)</label>
+        <input id="protectionHeight" type="number" min="0" step="0.01" placeholder="0.00">
+      </div>
+
+    </div>
+  </div>
+
+
+  <div class="card">
+
+    <div class="row between">
+      <h2>3 · Room Dimensions</h2>
+      <button class="btn secondary" onclick="addSection()">＋ Add Section</button>
+    </div>
+
+    <p class="small">
+      Enter each rectangular section measured on site. The app calculates the volume only.
+    </p>
+
     <div id="sections"></div>
-    <div class="total"><div class="small">TOTAL ROOM VOLUME</div><div class="num" id="totalVolume">0.00 m³</div></div>
+
+    <div class="total">
+      <div class="small">TOTAL ROOM VOLUME</div>
+      <div class="num" id="totalVolume">0.00 m³</div>
+    </div>
+
   </div>
 
-  <div class="card"><h2>4 · Evidence</h2>
-    <div class="field"><label>Site / room photos</label><input id="photos" type="file" accept="image/*" capture="environment" multiple onchange="previewPhotos(event)"></div>
+
+  <div class="card">
+
+    <h2>4 · Evidence</h2>
+
+    <div class="field">
+      <label>Site / room photos</label>
+      <input id="photos"
+             type="file"
+             accept="image/*"
+             capture="environment"
+             multiple
+             onchange="previewPhotos(event)">
+    </div>
+
     <div id="photoPreview" class="photo-grid"></div>
-    <div class="field" style="margin-top:12px"><label>Notes</label><textarea id="notes" placeholder="Anything unusual or relevant on site..."></textarea></div>
+
+    <div class="field" style="margin-top:12px">
+      <label>Notes</label>
+      <textarea id="notes" placeholder="Anything unusual or relevant on site..."></textarea>
+    </div>
+
   </div>
 
-  <div class="card"><h2>5 · Review</h2><div id="review"></div>
-    <div class="actions"><button class="btn secondary" onclick="updateReview()">Refresh Review</button><button class="btn primary" onclick="saveTest()">Save Test</button></div>
+
+  <div class="card">
+
+    <h2>5 · Review</h2>
+
+    <div id="review"></div>
+
+    <div class="actions">
+      <button class="btn secondary" onclick="updateReview()">Refresh Review</button>
+      <button class="btn primary" onclick="saveTest()">Save Test & Download PDF</button>
+    </div>
+
   </div>
+
 </section>
+
 
 <section id="saved" class="screen">
-  <div class="row between"><div><h1>Saved Tests</h1><p class="lead">Records stored on this device.</p></div><button class="btn ghost" onclick="show('home')">Home</button></div>
-  <div class="card"><div id="savedList"></div></div>
+
+  <div class="row between">
+    <div>
+      <h1>Saved Tests</h1>
+      <p class="lead">Records stored on this device.</p>
+    </div>
+
+    <button class="btn ghost" onclick="show('home')">Home</button>
+  </div>
+
+  <div class="card">
+    <div id="savedList"></div>
+  </div>
+
 </section>
+
 </main>
-<div id="bottom" class="bottom" style="display:none"><button class="btn primary" onclick="updateReview()">Review current test</button></div>
+
+
+<div id="bottom" class="bottom" style="display:none">
+  <button class="btn primary" onclick="updateReview()">Review current test</button>
 </div>
 
+</div>
+
+
 <script>
-let sections=[], photoData=[];
-const $=id=>document.getElementById(id);
-function show(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));$(id).classList.add('active'); $('bottom').style.display=id==='test'?'block':'none'; if(id==='saved') renderSaved();}
+
+let sections = [];
+let photoData = [];
+
+const $ = id => document.getElementById(id);
+
+
+function show(id){
+
+  document
+    .querySelectorAll('.screen')
+    .forEach(s => s.classList.remove('active'));
+
+  $(id).classList.add('active');
+
+  $('bottom').style.display =
+    id === 'test' ? 'block' : 'none';
+
+  if(id === 'saved'){
+    renderSaved();
+  }
+}
+
+
 function newTest(){
-  sections=[]; photoData=[]; document.querySelectorAll('input,textarea').forEach(e=>{if(e.type!=='file') e.value=''});
-  $('date').value=new Date().toISOString().slice(0,10); $('roomType').value='Server Room';
-  $('photoPreview').innerHTML=''; $('sections').innerHTML=''; addSection(); updateReview(); show('test');
+
+  sections = [];
+  photoData = [];
+
+  document
+    .querySelectorAll('input,textarea')
+    .forEach(e => {
+      if(e.type !== 'file'){
+        e.value = '';
+      }
+    });
+
+  $('date').value =
+    new Date().toISOString().slice(0,10);
+
+  $('roomType').value = 'Server Room';
+
+  $('photoPreview').innerHTML = '';
+  $('sections').innerHTML = '';
+
+  addSection();
+
+  updateReview();
+
+  show('test');
 }
+
+
 function addSection(){
-  const id=Date.now()+Math.random(); sections.push({id,l:0,w:0,h:0});
-  const wrap=document.createElement('div'); wrap.className='section'; wrap.id='sec-'+id;
-  wrap.innerHTML=`<div class="row between section-title"><span>Section ${sections.length}</span><button class="btn danger" onclick="removeSection('${id}')">Remove</button></div>
-  <div class="grid"><div class="field"><label>Length (m)</label><input type="number" min="0" step="0.01" oninput="setDim('${id}','l',this.value)"></div>
-  <div class="field"><label>Width (m)</label><input type="number" min="0" step="0.01" oninput="setDim('${id}','w',this.value)"></div>
-  <div class="field"><label>Height (m)</label><input type="number" min="0" step="0.01" oninput="setDim('${id}','h',this.value)"></div></div>
-  <div class="volume" id="vol-${id}">Volume: 0.00 m³</div>`;
-  $('sections').appendChild(wrap); updateTotal();
+
+  const id = Date.now() + Math.random();
+
+  sections.push({
+    id,
+    l:0,
+    w:0,
+    h:0
+  });
+
+  const wrap = document.createElement('div');
+
+  wrap.className = 'section';
+  wrap.id = 'sec-' + id;
+
+  wrap.innerHTML = `
+    <div class="row between section-title">
+      <span>Section ${sections.length}</span>
+      <button
+        class="btn danger"
+        onclick="removeSection('${id}')">
+        Remove
+      </button>
+    </div>
+
+    <div class="grid">
+
+      <div class="field">
+        <label>Length (m)</label>
+        <input
+          type="number"
+          min="0"
+          step="0.01"
+          oninput="setDim('${id}','l',this.value)">
+      </div>
+
+      <div class="field">
+        <label>Width (m)</label>
+        <input
+          type="number"
+          min="0"
+          step="0.01"
+          oninput="setDim('${id}','w',this.value)">
+      </div>
+
+      <div class="field">
+        <label>Height (m)</label>
+        <input
+          type="number"
+          min="0"
+          step="0.01"
+          oninput="setDim('${id}','h',this.value)">
+      </div>
+
+    </div>
+
+    <div class="volume" id="vol-${id}">
+      Volume: 0.00 m³
+    </div>
+  `;
+
+  $('sections').appendChild(wrap);
+
+  updateTotal();
 }
-function setDim(id,key,val){const s=sections.find(x=>x.id==id);s[key]=parseFloat(val)||0; const v=s.l*s.w*s.h; $('vol-'+id).textContent='Volume: '+v.toFixed(2)+' m³'; updateTotal();}
-function removeSection(id){sections=sections.filter(x=>x.id!=id);$('sec-'+id).remove();[...$('sections').children].forEach((e,i)=>e.querySelector('.section-title span').textContent='Section '+(i+1));updateTotal();}
-function total(){return sections.reduce((a,s)=>a+s.l*s.w*s.h,0)}
-function updateTotal(){$('totalVolume').textContent=total().toFixed(2)+' m³';updateReview();}
-function previewPhotos(e){photoData=[];$('photoPreview').innerHTML='';[...e.target.files].forEach(f=>{const r=new FileReader();r.onload=x=>{photoData.push(x.target.result);const img=document.createElement('img');img.src=x.target.result;$('photoPreview').appendChild(img)};r.readAsDataURL(f)})}
-function val(id){return $(id).value.trim()}
+
+
+function setDim(id,key,val){
+
+  const s = sections.find(x => x.id == id);
+
+  s[key] = parseFloat(val) || 0;
+
+  const v = s.l * s.w * s.h;
+
+  $('vol-' + id).textContent =
+    'Volume: ' + v.toFixed(2) + ' m³';
+
+  updateTotal();
+}
+
+
+function removeSection(id){
+
+  sections = sections.filter(x => x.id != id);
+
+  const element = $('sec-' + id);
+
+  if(element){
+    element.remove();
+  }
+
+  [...$('sections').children]
+    .forEach((e,i) =>
+      e.querySelector('.section-title span').textContent =
+        'Section ' + (i+1)
+    );
+
+  updateTotal();
+}
+
+
+function total(){
+
+  return sections.reduce(
+    (a,s) => a + s.l*s.w*s.h,
+    0
+  );
+
+}
+
+
+function updateTotal(){
+
+  $('totalVolume').textContent =
+    total().toFixed(2) + ' m³';
+
+  updateReview();
+
+}
+
+
+function previewPhotos(e){
+
+  photoData = [];
+
+  $('photoPreview').innerHTML = '';
+
+  [...e.target.files].forEach(f => {
+
+    const r = new FileReader();
+
+    r.onload = x => {
+
+      photoData.push(x.target.result);
+
+      const img =
+        document.createElement('img');
+
+      img.src = x.target.result;
+
+      $('photoPreview')
+        .appendChild(img);
+
+    };
+
+    r.readAsDataURL(f);
+
+  });
+
+}
+
+
+function val(id){
+
+  return $(id).value.trim();
+
+}
+
+
 function updateReview(){
-  const items=[['Customer',val('customer')],['Site',val('site')],['Room',val('room')],['Room type',val('roomType')],['Gas',val('gas')],['Gas weight',val('gasWeight')?val('gasWeight')+' kg':''],['Total volume',total().toFixed(2)+' m³']];
-  $('review').innerHTML=items.map(x=>`<div class="row between" style="padding:7px 0;border-bottom:1px solid var(--line)"><span class="small">${x[0]}</span><strong>${x[1]||'—'}</strong></div>`).join('');
+
+  const items = [
+
+    ['Customer', val('customer')],
+
+    ['Site', val('site')],
+
+    ['Room', val('room')],
+
+    ['Room type', val('roomType')],
+
+    ['Gas', val('gas')],
+
+    [
+      'Gas weight',
+      val('gasWeight')
+        ? val('gasWeight') + ' kg'
+        : ''
+    ],
+
+    [
+      'Protection Height',
+      val('protectionHeight')
+        ? val('protectionHeight') + ' m'
+        : ''
+    ],
+
+    [
+      'Total volume',
+      total().toFixed(2) + ' m³'
+    ]
+
+  ];
+
+  $('review').innerHTML =
+    items.map(x => `
+      <div
+        class="row between"
+        style="padding:7px 0;border-bottom:1px solid var(--line)">
+
+        <span class="small">${x[0]}</span>
+
+        <strong>${x[1] || '—'}</strong>
+
+      </div>
+    `).join('');
+
 }
+
+
 function collect(){
- return {id:Date.now(),date:val('date'),technician:val('technician'),customer:val('customer'),site:val('site'),area:val('area'),room:val('room'),roomType:val('roomType'),gas:val('gas'),gasWeight:val('gasWeight'),sections,total:total(),notes:val('notes'),photos:photoData};
+
+  return {
+
+    id: Date.now(),
+
+    date: val('date'),
+
+    technician: val('technician'),
+
+    customer: val('customer'),
+
+    site: val('site'),
+
+    area: val('area'),
+
+    room: val('room'),
+
+    roomType: val('roomType'),
+
+    gas: val('gas'),
+
+    gasWeight: val('gasWeight'),
+
+    protectionHeight: val('protectionHeight'),
+
+    sections: sections,
+
+    total: total(),
+
+    notes: val('notes'),
+
+    photos: photoData
+
+  };
+
 }
+
+
+/* --------------------------------------------------
+   SAVE TEST
+-------------------------------------------------- */
+
 function saveTest(){
-  const data=collect(); let arr=JSON.parse(localStorage.getItem('integrityTests')||'[]');arr.unshift(data);localStorage.setItem('integrityTests',JSON.stringify(arr));alert('Test saved on this device.');show('saved');
+
+  const data = collect();
+
+  let arr =
+    JSON.parse(
+      localStorage.getItem('integrityTests') || '[]'
+    );
+
+  arr.unshift(data);
+
+  localStorage.setItem(
+    'integrityTests',
+    JSON.stringify(arr)
+  );
+
+  downloadPDF(data);
+
 }
+
+
+/* --------------------------------------------------
+   PDF GENERATION
+-------------------------------------------------- */
+
+function downloadPDF(data){
+
+  if(!window.jspdf || !window.jspdf.jsPDF){
+
+    alert(
+      'PDF generator could not be loaded. ' +
+      'Please check your internet connection and try again.'
+    );
+
+    return;
+
+  }
+
+  const { jsPDF } = window.jspdf;
+
+  const doc = new jsPDF();
+
+  let y = 20;
+
+  const left = 18;
+  const pageWidth = 210;
+  const right = 192;
+
+
+  function title(text){
+
+    doc.setFontSize(18);
+    doc.setFont(undefined,'bold');
+    doc.text(text,left,y);
+
+    y += 10;
+
+  }
+
+
+  function heading(text){
+
+    checkPage(15);
+
+    doc.setFontSize(12);
+    doc.setFont(undefined,'bold');
+    doc.text(text,left,y);
+
+    y += 7;
+
+  }
+
+
+  function line(label,value){
+
+    checkPage(8);
+
+    doc.setFontSize(9);
+    doc.setFont(undefined,'normal');
+
+    doc.text(
+      label + ':',
+      left,
+      y
+    );
+
+    doc.setFont(undefined,'bold');
+
+    doc.text(
+      value || '-',
+      left + 42,
+      y
+    );
+
+    y += 6;
+
+  }
+
+
+  function checkPage(height){
+
+    if(y + height > 275){
+
+      doc.addPage();
+
+      y = 20;
+
+    }
+
+  }
+
+
+  /* HEADER */
+
+  title('INTEGRITY FIELD');
+
+  doc.setFontSize(10);
+  doc.setFont(undefined,'normal');
+
+  doc.text(
+    'Fire Suppression Integrity Test',
+    left,
+    y
+  );
+
+  y += 12;
+
+
+  /* SITE DETAILS */
+
+  heading('1. SITE DETAILS');
+
+  line('Date',data.date);
+  line('Technician',data.technician);
+  line('Customer',data.customer);
+  line('Site',data.site);
+  line('Building / Area',data.area);
+
+
+  /* ROOM & SYSTEM */
+
+  y += 4;
+
+  heading('2. ROOM & SYSTEM');
+
+  line('Room',data.room);
+  line('Room Type',data.roomType);
+  line('Gas Type',data.gas);
+  line(
+    'Gas Weight',
+    data.gasWeight
+      ? data.gasWeight + ' kg'
+      : ''
+  );
+
+  line(
+    'Protection Height',
+    data.protectionHeight
+      ? data.protectionHeight + ' m'
+      : ''
+  );
+
+
+  /* DIMENSIONS */
+
+  y += 4;
+
+  heading('3. ROOM DIMENSIONS');
+
+  data.sections.forEach((s,index) => {
+
+    const volume =
+      s.l * s.w * s.h;
+
+    checkPage(18);
+
+    doc.setFontSize(9);
+    doc.setFont(undefined,'bold');
+
+    doc.text(
+      'Section ' + (index + 1),
+      left,
+      y
+    );
+
+    y += 5;
+
+    doc.setFont(undefined,'normal');
+
+    doc.text(
+      'Length: ' + s.l.toFixed(2) + ' m',
+      left,
+      y
+    );
+
+    doc.text(
+      'Width: ' + s.w.toFixed(2) + ' m',
+      left + 55,
+      y
+    );
+
+    doc.text(
+      'Height: ' + s.h.toFixed(2) + ' m',
+      left + 105,
+      y
+    );
+
+    y += 5;
+
+    doc.text(
+      'Volume: ' + volume.toFixed(2) + ' m³',
+      left,
+      y
+    );
+
+    y += 8;
+
+  });
+
+
+  checkPage(15);
+
+  doc.setFont(undefined,'bold');
+
+  doc.text(
+    'TOTAL ROOM VOLUME: ' +
+    data.total.toFixed(2) +
+    ' m³',
+    left,
+    y
+  );
+
+  y += 12;
+
+
+  /* NOTES */
+
+  heading('4. NOTES');
+
+  doc.setFont(undefined,'normal');
+
+  const notes =
+    data.notes || 'None';
+
+  const noteLines =
+    doc.splitTextToSize(
+      notes,
+      right-left
+    );
+
+  checkPage(noteLines.length * 5 + 5);
+
+  doc.text(
+    noteLines,
+    left,
+    y
+  );
+
+  y += noteLines.length * 5 + 8;
+
+
+  /* PHOTOS */
+
+  if(data.photos && data.photos.length){
+
+    heading('5. SITE / ROOM PHOTOS');
+
+    for(let i=0;i<data.photos.length;i++){
+
+      try{
+
+        checkPage(75);
+
+        doc.addImage(
+          data.photos[i],
+          'JPEG',
+          left,
+          y,
+          55,
+          55
+        );
+
+        y += 62;
+
+      }catch(error){
+
+        console.warn(
+          'Could not add photo to PDF',
+          error
+        );
+
+      }
+
+    }
+
+  }
+
+
+  /* FOOTER */
+
+  const pageCount =
+    doc.internal.getNumberOfPages();
+
+  for(let i=1;i<=pageCount;i++){
+
+    doc.setPage(i);
+
+    doc.setFontSize(8);
+    doc.setFont(undefined,'normal');
+
+    doc.text(
+      'Integrity Field · Fire suppression integrity test',
+      left,
+      290
+    );
+
+    doc.text(
+      'Page ' + i + ' of ' + pageCount,
+      160,
+      290
+    );
+
+  }
+
+
+  /* FILE NAME */
+
+  const safeRoom =
+    (data.room || 'Test')
+      .replace(/[^a-z0-9]/gi,'_');
+
+  const date =
+    data.date || 'undated';
+
+  const filename =
+    'Integrity_Field_' +
+    safeRoom +
+    '_' +
+    date +
+    '.pdf';
+
+
+  doc.save(filename);
+
+
+  alert(
+    'Test saved successfully and PDF downloaded.'
+  );
+
+  show('saved');
+
+}
+
+
+/* --------------------------------------------------
+   SAVED TESTS
+-------------------------------------------------- */
+
 function renderSaved(){
- const arr=JSON.parse(localStorage.getItem('integrityTests')||'[]');
- $('savedList').innerHTML=arr.length?arr.map((x,i)=>`<div class="saved-item"><div class="row between"><strong>${x.room||'Unnamed room'}</strong><span class="badge">${x.total.toFixed(2)} m³</span></div><div class="small">${x.customer||'No customer'} · ${x.site||'No site'} · ${x.date||''}</div><div class="actions"><button class="btn secondary" onclick="viewSaved(${i})">View</button><button class="btn danger" onclick="deleteSaved(${i})">Delete</button></div></div>`).join(''):'<div class="empty">No saved tests yet.</div>';
+
+  const arr =
+    JSON.parse(
+      localStorage.getItem('integrityTests') || '[]'
+    );
+
+  $('savedList').innerHTML =
+    arr.length
+      ? arr.map((x,i) => `
+
+        <div class="saved-item">
+
+          <div class="row between">
+
+            <strong>
+              ${x.room || 'Unnamed room'}
+            </strong>
+
+            <span class="badge">
+              ${Number(x.total || 0).toFixed(2)} m³
+            </span>
+
+          </div>
+
+          <div class="small">
+            ${x.customer || 'No customer'}
+            ·
+            ${x.site || 'No site'}
+            ·
+            ${x.date || ''}
+          </div>
+
+          <div class="small" style="margin-top:4px">
+            Protection Height:
+            ${x.protectionHeight || '—'}
+            ${x.protectionHeight ? 'm' : ''}
+          </div>
+
+          <div class="actions">
+
+            <button
+              class="btn secondary"
+              onclick="viewSaved(${i})">
+              View
+            </button>
+
+            <button
+              class="btn secondary"
+              onclick="downloadSavedPDF(${i})">
+              PDF
+            </button>
+
+            <button
+              class="btn danger"
+              onclick="deleteSaved(${i})">
+              Delete
+            </button>
+
+          </div>
+
+        </div>
+
+      `).join('')
+
+      : '<div class="empty">No saved tests yet.</div>';
+
 }
+
+
+/* --------------------------------------------------
+   VIEW SAVED TEST
+-------------------------------------------------- */
+
 function viewSaved(i){
- const x=JSON.parse(localStorage.getItem('integrityTests')||'[]')[i];
- alert(`TEST RECORD\\n\\nCustomer: ${x.customer}\\nSite: ${x.site}\\nRoom: ${x.room}\\nType: ${x.roomType}\\nGas: ${x.gas}\\nGas weight: ${x.gasWeight} kg\\nTotal volume: ${x.total.toFixed(2)} m³\\nTechnician: ${x.technician}\\nDate: ${x.date}\\n\\nSections: ${x.sections.length}\\nNotes: ${x.notes||'None'}`);
+
+  const x =
+    JSON.parse(
+      localStorage.getItem('integrityTests') || '[]'
+    )[i];
+
+  alert(
+`TEST RECORD
+
+Customer: ${x.customer || '-'}
+Site: ${x.site || '-'}
+Building / Area: ${x.area || '-'}
+Room: ${x.room || '-'}
+Type: ${x.roomType || '-'}
+Gas: ${x.gas || '-'}
+Gas weight: ${x.gasWeight || '-'} kg
+Protection Height: ${x.protectionHeight || '-'} m
+Total volume: ${Number(x.total || 0).toFixed(2)} m³
+Technician: ${x.technician || '-'}
+Date: ${x.date || '-'}
+
+Sections: ${x.sections ? x.sections.length : 0}
+
+Notes:
+${x.notes || 'None'}`
+  );
+
 }
-function deleteSaved(i){let a=JSON.parse(localStorage.getItem('integrityTests')||'[]');a.splice(i,1);localStorage.setItem('integrityTests',JSON.stringify(a));renderSaved();}
+
+
+/* --------------------------------------------------
+   DOWNLOAD PDF FROM SAVED TEST
+-------------------------------------------------- */
+
+function downloadSavedPDF(i){
+
+  const arr =
+    JSON.parse(
+      localStorage.getItem('integrityTests') || '[]'
+    );
+
+  const data = arr[i];
+
+  if(data){
+
+    downloadPDF(data);
+
+  }
+
+}
+
+
+/* --------------------------------------------------
+   DELETE
+-------------------------------------------------- */
+
+function deleteSaved(i){
+
+  let a =
+    JSON.parse(
+      localStorage.getItem('integrityTests') || '[]'
+    );
+
+  a.splice(i,1);
+
+  localStorage.setItem(
+    'integrityTests',
+    JSON.stringify(a)
+  );
+
+  renderSaved();
+
+}
+
 </script>
+
+
 <script>
+
 if ("serviceWorker" in navigator) {
-  window.addEventListener("load", () => navigator.serviceWorker.register("./sw.js"));
+
+  window.addEventListener(
+    "load",
+    () => navigator.serviceWorker.register("./sw.js")
+  );
+
 }
+
 </script>
+
 </body>
 </html>
