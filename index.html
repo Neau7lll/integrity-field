@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -716,10 +717,10 @@ placeholder="Site name">
 
 <div class="field">
 
-<label>Building / Area</label>
+<label>Building Address</label>
 
 <input id="area"
-placeholder="Building, floor or area">
+placeholder="Building address">
 
 </div>
 
@@ -1915,30 +1916,36 @@ Object.values(x.results)
 
 const items = [
 
+
 [
 'Customer',
 val('customer')
 ],
+
 
 [
 'Site',
 val('site')
 ],
 
+
 [
 'Room',
 val('room')
 ],
+
 
 [
 'Room type',
 val('roomType')
 ],
 
+
 [
 'Gas',
 val('gas')
 ],
+
 
 [
 'Gas weight',
@@ -1947,6 +1954,7 @@ val('gasWeight')
 : ''
 ],
 
+
 [
 'Protection Height',
 val('protectionHeight')
@@ -1954,15 +1962,18 @@ val('protectionHeight')
 : ''
 ],
 
+
 [
 'Total volume',
 total().toFixed(2) + ' m³'
 ],
 
+
 [
 'Pressurization rows',
 pressRows + ' / 4'
 ],
+
 
 [
 'Depressurization rows',
@@ -2081,7 +2092,37 @@ photoData
 
 
 
-/* SAVE */
+/* ================================
+   PDF FILENAME
+================================ */
+
+function getPdfFilename(data){
+
+const clean = value => String(value || '')
+.trim()
+.replace(/[<>:"/\\|?*\x00-\x1F]/g, '')
+.replace(/\s+/g, ' ');
+
+
+const site =
+clean(data.site) ||
+'Unknown Site';
+
+
+const room =
+clean(data.room) ||
+'Unknown Room';
+
+
+return `${site} - ${room}`;
+
+}
+
+
+
+/* ================================
+   SAVE
+================================ */
 
 function saveTest(){
 
@@ -2109,21 +2150,49 @@ JSON.stringify(arr)
 generatePrintReport(data);
 
 
+/* Set suggested PDF filename */
+
+const originalTitle =
+document.title;
+
+
+document.title =
+getPdfFilename(data);
+
+
 show('saved');
 
 
 setTimeout(
 () => {
+
 window.print();
+
 },
 300
+);
+
+
+/* Restore original title after printing */
+
+window.addEventListener(
+'afterprint',
+function restoreTitle(){
+
+document.title =
+originalTitle;
+
+},
+{ once:true }
 );
 
 }
 
 
 
-/* PRINT REPORT */
+/* ================================
+   PRINT REPORT
+================================ */
 
 function generatePrintReport(data){
 
@@ -2146,6 +2215,7 @@ Fire Suppression Integrity Test
 </div>
 
 
+
 <div class="print-section">
 
 <div class="print-section-title">
@@ -2162,7 +2232,7 @@ ${printField('Customer',data.customer)}
 
 ${printField('Site',data.site)}
 
-${printField('Building / Area',data.area)}
+${printField('Building Address',data.area)}
 
 </div>
 
@@ -2462,7 +2532,9 @@ return html;
 
 
 
-/* SAVED */
+/* ================================
+   SAVED
+================================ */
 
 function renderSaved(){
 
@@ -2612,7 +2684,7 @@ Customer: ${x.customer || '-'}
 
 Site: ${x.site || '-'}
 
-Building / Area: ${x.area || '-'}
+Building Address: ${x.area || '-'}
 
 Room: ${x.room || '-'}
 
@@ -2707,7 +2779,9 @@ alert(text);
 
 
 
-/* PRINT SAVED */
+/* ================================
+   PRINT SAVED
+================================ */
 
 function printSaved(i){
 
@@ -2731,21 +2805,49 @@ return;
 generatePrintReport(data);
 
 
+/* Set suggested PDF filename */
+
+const originalTitle =
+document.title;
+
+
+document.title =
+getPdfFilename(data);
+
+
 show('saved');
 
 
 setTimeout(
 () => {
+
 window.print();
+
 },
 300
+);
+
+
+/* Restore original title after printing */
+
+window.addEventListener(
+'afterprint',
+function restoreTitle(){
+
+document.title =
+originalTitle;
+
+},
+{ once:true }
 );
 
 }
 
 
 
-/* DELETE */
+/* ================================
+   DELETE
+================================ */
 
 function deleteSaved(i){
 
@@ -2772,7 +2874,9 @@ renderSaved();
 
 
 
-/* ESCAPE HTML */
+/* ================================
+   ESCAPE HTML
+================================ */
 
 function escapeHTML(value){
 
@@ -2819,3 +2923,4 @@ error
 </body>
 
 </html>
+```
