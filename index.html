@@ -20,25 +20,18 @@ content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
 :root{
   --bg:#f3f6f7;
-  --card:#ffffff;
+  --card:#fff;
   --ink:#17232b;
   --muted:#687780;
   --accent:#147d92;
   --accent2:#0e6070;
-  --accent-light:#eaf5f7;
   --line:#dce4e7;
   --danger:#b83a3a;
-  --success:#2e7d5b;
   --shadow:0 8px 24px rgba(22,40,48,.08);
-  --shadow-hover:0 12px 30px rgba(22,40,48,.12);
 }
 
 *{
   box-sizing:border-box;
-}
-
-html{
-  scroll-behavior:smooth;
 }
 
 body{
@@ -66,81 +59,29 @@ button{
   background:var(--bg);
 }
 
-
-/* ================================
-   HEADER
-================================ */
-
 header{
-  background:
-    linear-gradient(
-      135deg,
-      #10212b 0%,
-      #172f3b 55%,
-      #123d4a 100%
-    );
+  background:var(--ink);
   color:#fff;
-  padding:16px 20px;
+  padding:22px 20px 18px;
   position:sticky;
   top:0;
   z-index:10;
-  box-shadow:0 4px 18px rgba(0,0,0,.16);
-}
-
-.header-inner{
-  display:flex;
-  align-items:center;
-  gap:13px;
-}
-
-.header-logo{
-  width:46px;
-  height:46px;
-  border-radius:11px;
-  object-fit:contain;
-  background:#fff;
-  padding:4px;
-  box-shadow:0 3px 10px rgba(0,0,0,.18);
-  flex-shrink:0;
-}
-
-.header-copy{
-  min-width:0;
 }
 
 .brand{
-  font-weight:850;
+  font-weight:800;
   font-size:20px;
-  letter-spacing:.15px;
-  line-height:1.15;
+  letter-spacing:.2px;
 }
 
 .subtitle{
-  font-size:11px;
+  font-size:12px;
   color:#b8c8ce;
-  margin-top:4px;
-  letter-spacing:.15px;
+  margin-top:3px;
 }
-
-.header-status{
-  margin-left:auto;
-  font-size:10px;
-  font-weight:750;
-  color:#c9e9ef;
-  border:1px solid rgba(255,255,255,.18);
-  background:rgba(255,255,255,.07);
-  padding:6px 9px;
-  border-radius:999px;
-  white-space:nowrap;
-}
-
-
-/* ================================
-   MAIN
-================================ */
 
 main{
-  padding:20px 16px 110px;
+  padding:18px 16px 110px;
 }
 
 .screen{
@@ -154,19 +95,12 @@ main{
 h1{
   font-size:28px;
   margin:8px 0 6px;
-  letter-spacing:-.5px;
 }
 
 .lead{
   color:var(--muted);
   margin:0 0 20px;
-  line-height:1.5;
 }
-
-
-/* ================================
-   CARDS
-================================ */
 
 .card{
   background:var(--card);
@@ -180,33 +114,7 @@ h1{
 .card h2{
   font-size:16px;
   margin:0 0 14px;
-  letter-spacing:.05px;
 }
-
-.card-heading{
-  display:flex;
-  align-items:center;
-  gap:10px;
-}
-
-.card-number{
-  width:27px;
-  height:27px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  border-radius:8px;
-  background:var(--accent-light);
-  color:var(--accent);
-  font-size:12px;
-  font-weight:850;
-  flex-shrink:0;
-}
-
-
-/* ================================
-   FORMS
-================================ */
 
 .grid{
   display:grid;
@@ -225,7 +133,7 @@ h1{
 label{
   display:block;
   font-size:12px;
-  font-weight:750;
+  font-weight:700;
   color:var(--muted);
   margin:0 0 6px;
 }
@@ -240,14 +148,6 @@ textarea{
   background:#fff;
   color:var(--ink);
   outline:none;
-  transition:
-    border-color .15s ease,
-    box-shadow .15s ease;
-}
-
-input::placeholder,
-textarea::placeholder{
-  color:#a4afb4;
 }
 
 input:focus,
@@ -262,44 +162,25 @@ textarea{
   resize:vertical;
 }
 
-
-/* ================================
-   BUTTONS
-================================ */
-
 .btn{
   border:0;
   border-radius:11px;
   padding:13px 16px;
   font-weight:750;
-  transition:
-    transform .12s ease,
-    box-shadow .12s ease,
-    background .12s ease;
-}
-
-.btn:active{
-  transform:translateY(1px);
 }
 
 .primary{
   background:var(--accent);
   color:#fff;
-  box-shadow:0 4px 12px rgba(20,125,146,.18);
 }
 
 .primary:hover{
   background:var(--accent2);
-  box-shadow:0 6px 16px rgba(20,125,146,.24);
 }
 
 .secondary{
   background:#e9f0f2;
   color:var(--ink);
-}
-
-.secondary:hover{
-  background:#dfe9ec;
 }
 
 .ghost{
@@ -308,19 +189,10 @@ textarea{
   border:1px solid var(--line);
 }
 
-.ghost:hover{
-  border-color:#b8cbd0;
-  background:#f7fafb;
-}
-
 .danger{
   background:#fff0f0;
   color:var(--danger);
   border:1px solid #f0d0d0;
-}
-
-.danger:hover{
-  background:#ffe6e6;
 }
 
 .row{
@@ -343,36 +215,6 @@ textarea{
   flex:1;
 }
 
-
-/* ================================
-   HOME
-================================ */
-
-.home-hero{
-  background:
-    linear-gradient(
-      135deg,
-      #ffffff 0%,
-      #f1f8f9 100%
-    );
-  border:1px solid var(--line);
-  border-radius:20px;
-  padding:22px;
-  box-shadow:var(--shadow);
-}
-
-.home-hero h1{
-  margin-top:0;
-}
-
-.hero-accent{
-  width:42px;
-  height:4px;
-  border-radius:999px;
-  background:var(--accent);
-  margin-bottom:16px;
-}
-
 .home-grid{
   display:grid;
   grid-template-columns:1fr 1fr;
@@ -387,16 +229,6 @@ textarea{
   padding:20px;
   box-shadow:var(--shadow);
   text-align:left;
-  transition:
-    transform .15s ease,
-    box-shadow .15s ease,
-    border-color .15s ease;
-}
-
-.big-card:hover{
-  transform:translateY(-2px);
-  box-shadow:var(--shadow-hover);
-  border-color:#c6d8dc;
 }
 
 .big-card strong{
@@ -407,25 +239,7 @@ textarea{
 
 .icon{
   font-size:30px;
-  color:var(--accent);
-  font-weight:400;
 }
-
-.home-footnote{
-  margin-top:18px;
-  padding:12px 14px;
-  border-left:3px solid var(--accent);
-  background:#edf6f8;
-  border-radius:8px;
-  color:var(--muted);
-  font-size:12px;
-  line-height:1.5;
-}
-
-
-/* ================================
-   ROOM SECTIONS
-================================ */
 
 .section{
   border:1px solid var(--line);
@@ -453,7 +267,6 @@ textarea{
   border-radius:14px;
   padding:16px;
   text-align:center;
-  margin-top:14px;
 }
 
 .total .num{
@@ -461,11 +274,6 @@ textarea{
   font-weight:850;
   color:var(--accent);
 }
-
-
-/* ================================
-   GENERAL
-================================ */
 
 .small{
   font-size:12px;
@@ -513,11 +321,6 @@ textarea{
   font-weight:750;
 }
 
-
-/* ================================
-   BOTTOM BAR
-================================ */
-
 .bottom{
   position:fixed;
   bottom:0;
@@ -528,7 +331,6 @@ textarea{
   border-top:1px solid var(--line);
   padding:10px max(16px,calc((100vw - 760px)/2 + 16px));
   z-index:20;
-  box-shadow:0 -4px 18px rgba(22,40,48,.06);
 }
 
 .bottom .btn{
@@ -632,22 +434,9 @@ textarea{
   }
 
   .print-header{
-    display:flex;
-    align-items:center;
-    gap:12px;
     border-bottom:2px solid #17232b;
     padding-bottom:10px;
     margin-bottom:15px;
-  }
-
-  .print-logo{
-    width:48px;
-    height:48px;
-    object-fit:contain;
-  }
-
-  .print-header-copy{
-    flex:1;
   }
 
   .print-title{
@@ -736,6 +525,42 @@ textarea{
     min-height:35px;
   }
 
+  /*
+    ================================
+    PRINT PHOTOGRAPHS
+    ================================
+  */
+
+  .print-photos{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+    margin-top:8px;
+  }
+
+  .print-photo{
+    border:1px solid #ccc;
+    padding:4px;
+    page-break-inside:avoid;
+    break-inside:avoid;
+    background:#fff;
+  }
+
+  .print-photo img{
+    display:block;
+    width:100%;
+    height:auto;
+    max-height:105mm;
+    object-fit:contain;
+  }
+
+  .print-photo-number{
+    font-size:7px;
+    color:#666;
+    text-align:center;
+    padding-top:3px;
+  }
+
   .print-footer{
     margin-top:20px;
     padding-top:7px;
@@ -757,19 +582,6 @@ textarea{
 
   .actions{
     flex-direction:column;
-  }
-
-  .header-status{
-    display:none;
-  }
-
-  .header-logo{
-    width:42px;
-    height:42px;
-  }
-
-  .brand{
-    font-size:18px;
   }
 
   .test-table th{
@@ -801,30 +613,12 @@ textarea{
 
 <header>
 
-<div class="header-inner">
-
-<img
-class="header-logo"
-src="icon-192.png"
-alt="Morimi Fire Integrity logo"
->
-
-<div class="header-copy">
-
 <div class="brand">
 Morimi Fire Integrity
 </div>
 
 <div class="subtitle">
 Fire suppression integrity test · field data capture
-</div>
-
-</div>
-
-<div class="header-status">
-FIELD TEST
-</div>
-
 </div>
 
 </header>
@@ -837,10 +631,6 @@ FIELD TEST
 
 <section id="home" class="screen active">
 
-<div class="home-hero">
-
-<div class="hero-accent"></div>
-
 <h1>Field Capture</h1>
 
 <p class="lead">
@@ -848,21 +638,14 @@ Capture the site information accurately.
 Let the specialised software do the engineering calculations.
 </p>
 
-</div>
-
-
 <div class="home-grid">
 
-<button
-class="big-card"
-onclick="newTest()"
->
+<button class="big-card"
+onclick="newTest()">
 
 <div class="icon">＋</div>
 
-<strong>
-New Test
-</strong>
+<strong>New Test</strong>
 
 <span class="small">
 Capture a new room
@@ -871,33 +654,18 @@ Capture a new room
 </button>
 
 
-<button
-class="big-card"
-onclick="show('saved')"
->
+<button class="big-card"
+onclick="show('saved')">
 
 <div class="icon">▣</div>
 
-<strong>
-Saved Tests
-</strong>
+<strong>Saved Tests</strong>
 
 <span class="small">
 View completed records
 </span>
 
 </button>
-
-</div>
-
-
-<div class="home-footnote">
-
-<strong>Field workflow</strong><br>
-
-Capture the room dimensions, system details and
-measured test results. The application stores the
-record locally on this device.
 
 </div>
 
@@ -922,10 +690,8 @@ Enter the information exactly as measured on site.
 
 </div>
 
-<button
-class="btn ghost"
-onclick="show('home')"
->
+<button class="btn ghost"
+onclick="show('home')">
 
 Cancel
 
@@ -939,59 +705,36 @@ Cancel
 
 <div class="card">
 
-<div class="card-heading">
-
-<div class="card-number">
-1
-</div>
-
-<h2>
-Site Details
-</h2>
-
-</div>
-
+<h2>1 · Site Details</h2>
 
 <div class="grid">
 
 <div class="field">
 
-<label>
-Date
-</label>
+<label>Date</label>
 
-<input
-id="date"
-type="date"
->
+<input id="date"
+type="date">
 
 </div>
 
 
 <div class="field">
 
-<label>
-Technician
-</label>
+<label>Technician</label>
 
-<input
-id="technician"
-placeholder="Name"
->
+<input id="technician"
+placeholder="Name">
 
 </div>
 
 
 <div class="field">
 
-<label>
-Customer
-</label>
+<label>Customer</label>
 
-<input
-id="customer"
-placeholder="Customer"
->
+<input id="customer"
+placeholder="Customer">
 
 </div>
 
@@ -1000,14 +743,10 @@ placeholder="Customer"
 
 <div class="field">
 
-<label>
-Building Address
-</label>
+<label>Building Address</label>
 
-<input
-id="area"
-placeholder="Building address"
->
+<input id="area"
+placeholder="Building address">
 
 </div>
 
@@ -1019,40 +758,23 @@ placeholder="Building address"
 
 <div class="card">
 
-<div class="card-heading">
-
-<div class="card-number">
-2
-</div>
-
-<h2>
-Room & System
-</h2>
-
-</div>
-
+<h2>2 · Room & System</h2>
 
 <div class="grid">
 
 <div class="field">
 
-<label>
-Room name / number
-</label>
+<label>Room name / number</label>
 
-<input
-id="room"
-placeholder="e.g. Server Room 01"
->
+<input id="room"
+placeholder="e.g. Server Room 01">
 
 </div>
 
 
 <div class="field">
 
-<label>
-Room type
-</label>
+<label>Room type</label>
 
 <select id="roomType">
 
@@ -1069,48 +791,36 @@ Room type
 
 <div class="field">
 
-<label>
-Gas type
-</label>
+<label>Gas type</label>
 
-<input
-id="gas"
-placeholder="e.g. FK-5-1-12"
->
+<input id="gas"
+placeholder="e.g. FK-5-1-12">
 
 </div>
 
 
 <div class="field">
 
-<label>
-Gas weight (kg)
-</label>
+<label>Gas weight (kg)</label>
 
-<input
-id="gasWeight"
+<input id="gasWeight"
 type="number"
 min="0"
 step="0.01"
-placeholder="0.00"
->
+placeholder="0.00">
 
 </div>
 
 
 <div class="field">
 
-<label>
-Protection Height (m)
-</label>
+<label>Protection Height (m)</label>
 
-<input
-id="protectionHeight"
+<input id="protectionHeight"
 type="number"
 min="0"
 step="0.01"
-placeholder="0.00"
->
+placeholder="0.00">
 
 </div>
 
@@ -1126,29 +836,18 @@ placeholder="0.00"
 
 <div class="row between">
 
-<div class="card-heading">
-
-<div class="card-number">
-3
-</div>
-
 <h2>
-Room Dimensions
+3 · Room Dimensions
 </h2>
 
-</div>
-
-<button
-class="btn secondary"
-onclick="addSection()"
->
+<button class="btn secondary"
+onclick="addSection()">
 
 ＋ Add Section
 
 </button>
 
 </div>
-
 
 <p class="small">
 
@@ -1157,9 +856,7 @@ The app calculates the volume only.
 
 </p>
 
-
 <div id="sections"></div>
-
 
 <div class="total">
 
@@ -1167,10 +864,8 @@ The app calculates the volume only.
 TOTAL ROOM VOLUME
 </div>
 
-<div
-class="num"
-id="totalVolume"
->
+<div class="num"
+id="totalVolume">
 0.00 m³
 </div>
 
@@ -1184,18 +879,9 @@ id="totalVolume"
 
 <div class="card">
 
-<div class="card-heading">
-
-<div class="card-number">
-4
-</div>
-
 <h2>
-Pressurization Test
+4 · Pressurization Test
 </h2>
-
-</div>
-
 
 <p class="small test-description">
 
@@ -1237,55 +923,42 @@ Pressurization
 
 <tbody>
 
-
 <tr>
 
 <td>
-<input
-id="press-fan-1"
+<input id="press-fan-1"
 type="text"
-placeholder="Fan"
->
+placeholder="Fan">
 </td>
 
 <td>
-<input
-id="press-1-12"
+<input id="press-1-12"
 type="text"
-inputmode="decimal"
->
+inputmode="decimal">
 </td>
 
 <td>
-<input
-id="press-1-24"
+<input id="press-1-24"
 type="text"
-inputmode="decimal"
->
+inputmode="decimal">
 </td>
 
 <td>
-<input
-id="press-1-36"
+<input id="press-1-36"
 type="text"
-inputmode="decimal"
->
+inputmode="decimal">
 </td>
 
 <td>
-<input
-id="press-1-48"
+<input id="press-1-48"
 type="text"
-inputmode="decimal"
->
+inputmode="decimal">
 </td>
 
 <td>
-<input
-id="press-1-60"
+<input id="press-1-60"
 type="text"
-inputmode="decimal"
->
+inputmode="decimal">
 </td>
 
 </tr>
@@ -1294,51 +967,39 @@ inputmode="decimal"
 <tr>
 
 <td>
-<input
-id="press-fan-2"
+<input id="press-fan-2"
 type="text"
-placeholder="Fan"
->
+placeholder="Fan">
 </td>
 
 <td>
-<input
-id="press-2-12"
+<input id="press-2-12"
 type="text"
-inputmode="decimal"
->
+inputmode="decimal">
 </td>
 
 <td>
-<input
-id="press-2-24"
+<input id="press-2-24"
 type="text"
-inputmode="decimal"
->
+inputmode="decimal">
 </td>
 
 <td>
-<input
-id="press-2-36"
+<input id="press-2-36"
 type="text"
-inputmode="decimal"
->
+inputmode="decimal">
 </td>
 
 <td>
-<input
-id="press-2-48"
+<input id="press-2-48"
 type="text"
-inputmode="decimal"
->
+inputmode="decimal">
 </td>
 
 <td>
-<input
-id="press-2-60"
+<input id="press-2-60"
 type="text"
-inputmode="decimal"
->
+inputmode="decimal">
 </td>
 
 </tr>
@@ -1347,51 +1008,39 @@ inputmode="decimal"
 <tr>
 
 <td>
-<input
-id="press-fan-3"
+<input id="press-fan-3"
 type="text"
-placeholder="Fan"
->
+placeholder="Fan">
 </td>
 
 <td>
-<input
-id="press-3-12"
+<input id="press-3-12"
 type="text"
-inputmode="decimal"
->
+inputmode="decimal">
 </td>
 
 <td>
-<input
-id="press-3-24"
+<input id="press-3-24"
 type="text"
-inputmode="decimal"
->
+inputmode="decimal">
 </td>
 
 <td>
-<input
-id="press-3-36"
+<input id="press-3-36"
 type="text"
-inputmode="decimal"
->
+inputmode="decimal">
 </td>
 
 <td>
-<input
-id="press-3-48"
+<input id="press-3-48"
 type="text"
-inputmode="decimal"
->
+inputmode="decimal">
 </td>
 
 <td>
-<input
-id="press-3-60"
+<input id="press-3-60"
 type="text"
-inputmode="decimal"
->
+inputmode="decimal">
 </td>
 
 </tr>
@@ -1400,55 +1049,42 @@ inputmode="decimal"
 <tr>
 
 <td>
-<input
-id="press-fan-4"
+<input id="press-fan-4"
 type="text"
-placeholder="Fan"
->
+placeholder="Fan">
 </td>
 
 <td>
-<input
-id="press-4-12"
+<input id="press-4-12"
 type="text"
-inputmode="decimal"
->
+inputmode="decimal">
 </td>
 
 <td>
-<input
-id="press-4-24"
+<input id="press-4-24"
 type="text"
-inputmode="decimal"
->
+inputmode="decimal">
 </td>
 
 <td>
-<input
-id="press-4-36"
+<input id="press-4-36"
 type="text"
-inputmode="decimal"
->
+inputmode="decimal">
 </td>
 
 <td>
-<input
-id="press-4-48"
+<input id="press-4-48"
 type="text"
-inputmode="decimal"
->
+inputmode="decimal">
 </td>
 
 <td>
-<input
-id="press-4-60"
+<input id="press-4-60"
 type="text"
-inputmode="decimal"
->
+inputmode="decimal">
 </td>
 
 </tr>
-
 
 </tbody>
 
@@ -1464,18 +1100,9 @@ inputmode="decimal"
 
 <div class="card">
 
-<div class="card-heading">
-
-<div class="card-number">
-5
-</div>
-
 <h2>
-Depressurization Test
+5 · Depressurization Test
 </h2>
-
-</div>
-
 
 <p class="small test-description">
 
@@ -1521,51 +1148,39 @@ Depressurization
 <tr>
 
 <td>
-<input
-id="depress-fan-1"
+<input id="depress-fan-1"
 type="text"
-placeholder="Fan"
->
+placeholder="Fan">
 </td>
 
 <td>
-<input
-id="depress-1-12"
+<input id="depress-1-12"
 type="text"
-inputmode="decimal"
->
+inputmode="decimal">
 </td>
 
 <td>
-<input
-id="depress-1-24"
+<input id="depress-1-24"
 type="text"
-inputmode="decimal"
->
+inputmode="decimal">
 </td>
 
 <td>
-<input
-id="depress-1-36"
+<input id="depress-1-36"
 type="text"
-inputmode="decimal"
->
+inputmode="decimal">
 </td>
 
 <td>
-<input
-id="depress-1-48"
+<input id="depress-1-48"
 type="text"
-inputmode="decimal"
->
+inputmode="decimal">
 </td>
 
 <td>
-<input
-id="depress-1-60"
+<input id="depress-1-60"
 type="text"
-inputmode="decimal"
->
+inputmode="decimal">
 </td>
 
 </tr>
@@ -1574,51 +1189,39 @@ inputmode="decimal"
 <tr>
 
 <td>
-<input
-id="depress-fan-2"
+<input id="depress-fan-2"
 type="text"
-placeholder="Fan"
->
+placeholder="Fan">
 </td>
 
 <td>
-<input
-id="depress-2-12"
+<input id="depress-2-12"
 type="text"
-inputmode="decimal"
->
+inputmode="decimal">
 </td>
 
 <td>
-<input
-id="depress-2-24"
+<input id="depress-2-24"
 type="text"
-inputmode="decimal"
->
+inputmode="decimal">
 </td>
 
 <td>
-<input
-id="depress-2-36"
+<input id="depress-2-36"
 type="text"
-inputmode="decimal"
->
+inputmode="decimal">
 </td>
 
 <td>
-<input
-id="depress-2-48"
+<input id="depress-2-48"
 type="text"
-inputmode="decimal"
->
+inputmode="decimal">
 </td>
 
 <td>
-<input
-id="depress-2-60"
+<input id="depress-2-60"
 type="text"
-inputmode="decimal"
->
+inputmode="decimal">
 </td>
 
 </tr>
@@ -1627,51 +1230,39 @@ inputmode="decimal"
 <tr>
 
 <td>
-<input
-id="depress-fan-3"
+<input id="depress-fan-3"
 type="text"
-placeholder="Fan"
->
+placeholder="Fan">
 </td>
 
 <td>
-<input
-id="depress-3-12"
+<input id="depress-3-12"
 type="text"
-inputmode="decimal"
->
+inputmode="decimal">
 </td>
 
 <td>
-<input
-id="depress-3-24"
+<input id="depress-3-24"
 type="text"
-inputmode="decimal"
->
+inputmode="decimal">
 </td>
 
 <td>
-<input
-id="depress-3-36"
+<input id="depress-3-36"
 type="text"
-inputmode="decimal"
->
+inputmode="decimal">
 </td>
 
 <td>
-<input
-id="depress-3-48"
+<input id="depress-3-48"
 type="text"
-inputmode="decimal"
->
+inputmode="decimal">
 </td>
 
 <td>
-<input
-id="depress-3-60"
+<input id="depress-3-60"
 type="text"
-inputmode="decimal"
->
+inputmode="decimal">
 </td>
 
 </tr>
@@ -1680,55 +1271,42 @@ inputmode="decimal"
 <tr>
 
 <td>
-<input
-id="depress-fan-4"
+<input id="depress-fan-4"
 type="text"
-placeholder="Fan"
->
+placeholder="Fan">
 </td>
 
 <td>
-<input
-id="depress-4-12"
+<input id="depress-4-12"
 type="text"
-inputmode="decimal"
->
+inputmode="decimal">
 </td>
 
 <td>
-<input
-id="depress-4-24"
+<input id="depress-4-24"
 type="text"
-inputmode="decimal"
->
+inputmode="decimal">
 </td>
 
 <td>
-<input
-id="depress-4-36"
+<input id="depress-4-36"
 type="text"
-inputmode="decimal"
->
+inputmode="decimal">
 </td>
 
 <td>
-<input
-id="depress-4-48"
+<input id="depress-4-48"
 type="text"
-inputmode="decimal"
->
+inputmode="decimal">
 </td>
 
 <td>
-<input
-id="depress-4-60"
+<input id="depress-4-60"
 type="text"
-inputmode="decimal"
->
+inputmode="decimal">
 </td>
 
 </tr>
-
 
 </tbody>
 
@@ -1744,18 +1322,9 @@ inputmode="decimal"
 
 <div class="card">
 
-<div class="card-heading">
-
-<div class="card-number">
-6
-</div>
-
 <h2>
-Evidence
+6 · Evidence
 </h2>
-
-</div>
-
 
 <div class="field">
 
@@ -1763,37 +1332,29 @@ Evidence
 Site / room photos
 </label>
 
-<input
-id="photos"
+<input id="photos"
 type="file"
 accept="image/*"
 capture="environment"
 multiple
-onchange="previewPhotos(event)"
->
+onchange="previewPhotos(event)">
 
 </div>
 
-
-<div
-id="photoPreview"
-class="photo-grid"
-></div>
+<div id="photoPreview"
+class="photo-grid">
+</div>
 
 
-<div
-class="field"
-style="margin-top:12px"
->
+<div class="field"
+style="margin-top:12px">
 
 <label>
 Notes
 </label>
 
-<textarea
-id="notes"
-placeholder="Anything unusual or relevant on site..."
-></textarea>
+<textarea id="notes"
+placeholder="Anything unusual or relevant on site..."></textarea>
 
 </div>
 
@@ -1805,38 +1366,23 @@ placeholder="Anything unusual or relevant on site..."
 
 <div class="card">
 
-<div class="card-heading">
-
-<div class="card-number">
-7
-</div>
-
 <h2>
-Review
+7 · Review
 </h2>
-
-</div>
-
 
 <div id="review"></div>
 
-
 <div class="actions">
 
-<button
-class="btn secondary"
-onclick="updateReview()"
->
+<button class="btn secondary"
+onclick="updateReview()">
 
 Refresh Review
 
 </button>
 
-
-<button
-class="btn primary"
-onclick="saveTest()"
->
+<button class="btn primary"
+onclick="saveTest()">
 
 Save Test & PDF
 
@@ -1869,10 +1415,8 @@ Records stored on this device.
 
 </div>
 
-<button
-class="btn ghost"
-onclick="show('home')"
->
+<button class="btn ghost"
+onclick="show('home')">
 
 Home
 
@@ -1893,24 +1437,18 @@ Home
 </main>
 
 
-
-<div
-id="bottom"
+<div id="bottom"
 class="bottom"
-style="display:none"
->
+style="display:none">
 
-<button
-class="btn primary"
-onclick="updateReview()"
->
+<button class="btn primary"
+onclick="updateReview()">
 
 Review current test
 
 </button>
 
 </div>
-
 
 </div>
 
@@ -1935,9 +1473,7 @@ id => document.getElementById(id);
 
 
 
-/* ================================
-   NAVIGATION
-================================ */
+/* NAVIGATION */
 
 function show(id){
 
@@ -1962,9 +1498,7 @@ renderSaved();
 
 
 
-/* ================================
-   NEW TEST
-================================ */
+/* NEW TEST */
 
 function newTest(){
 
@@ -1972,6 +1506,8 @@ sections = [];
 
 photoData = [];
 
+
+/* Clear all fields */
 
 document
 .querySelectorAll('input,textarea')
@@ -1990,18 +1526,20 @@ new Date()
 .toISOString()
 .slice(0,10);
 
-
 $('roomType').value =
 'Server Room';
 
+$('photoPreview').innerHTML = '';
 
-$('photoPreview').innerHTML =
-'';
+$('sections').innerHTML = '';
 
 
-$('sections').innerHTML =
-'';
-
+/*
+Create the first room section.
+The test fields already exist in
+the HTML, so there is no missing
+element problem.
+*/
 
 addSection();
 
@@ -2013,9 +1551,7 @@ show('test');
 
 
 
-/* ================================
-   ADD ROOM SECTION
-================================ */
+/* ADD ROOM SECTION */
 
 function addSection(){
 
@@ -2049,10 +1585,8 @@ wrap.innerHTML = `
 Section ${sections.length}
 </span>
 
-<button
-class="btn danger"
-onclick="removeSection('${id}')"
->
+<button class="btn danger"
+onclick="removeSection('${id}')">
 
 Remove
 
@@ -2073,8 +1607,7 @@ Length (m)
 type="number"
 min="0"
 step="0.01"
-oninput="setDim('${id}','l',this.value)"
->
+oninput="setDim('${id}','l',this.value)">
 
 </div>
 
@@ -2089,8 +1622,7 @@ Width (m)
 type="number"
 min="0"
 step="0.01"
-oninput="setDim('${id}','w',this.value)"
->
+oninput="setDim('${id}','w',this.value)">
 
 </div>
 
@@ -2105,18 +1637,15 @@ Height (m)
 type="number"
 min="0"
 step="0.01"
-oninput="setDim('${id}','h',this.value)"
->
+oninput="setDim('${id}','h',this.value)">
 
 </div>
 
 </div>
 
 
-<div
-class="volume"
-id="vol-${id}"
->
+<div class="volume"
+id="vol-${id}">
 
 Volume: 0.00 m³
 
@@ -2134,9 +1663,7 @@ updateTotal();
 
 
 
-/* ================================
-   DIMENSIONS
-================================ */
+/* DIMENSIONS */
 
 function setDim(id,key,val){
 
@@ -2172,9 +1699,7 @@ updateTotal();
 
 
 
-/* ================================
-   REMOVE SECTION
-================================ */
+/* REMOVE SECTION */
 
 function removeSection(id){
 
@@ -2211,9 +1736,7 @@ updateTotal();
 
 
 
-/* ================================
-   TOTAL
-================================ */
+/* TOTAL */
 
 function total(){
 
@@ -2236,16 +1759,13 @@ $('totalVolume')
 total().toFixed(2) +
 ' m³';
 
-
 updateReview();
 
 }
 
 
 
-/* ================================
-   PHOTOS
-================================ */
+/* PHOTOS */
 
 function previewPhotos(e){
 
@@ -2291,9 +1811,7 @@ reader.readAsDataURL(f);
 
 
 
-/* ================================
-   VALUE
-================================ */
+/* VALUE */
 
 function val(id){
 
@@ -2308,9 +1826,7 @@ return element
 
 
 
-/* ================================
-   TEST RESULTS
-================================ */
+/* GET TEST ROWS */
 
 function collectTestResults(
 prefix,
@@ -2376,9 +1892,7 @@ return results;
 
 
 
-/* ================================
-   REVIEW
-================================ */
+/* REVIEW */
 
 function updateReview(){
 
@@ -2513,9 +2027,7 @@ ${escapeHTML(x[1] || '—')}
 
 
 
-/* ================================
-   COLLECT
-================================ */
+/* COLLECT */
 
 function collect(){
 
@@ -2585,6 +2097,7 @@ collectTestResults(
 notes:
 val('notes'),
 
+
 photos:
 photoData
 
@@ -2613,12 +2126,16 @@ customer +
 room;
 
 
+/* Remove characters not allowed in filenames */
+
 filename =
 filename.replace(
 /[<>:"/\\|?*\x00-\x1F]/g,
 '-'
 );
 
+
+/* Remove trailing dots/spaces */
 
 filename =
 filename.replace(
@@ -2627,9 +2144,10 @@ filename.replace(
 );
 
 
+/* Avoid an empty filename */
+
 if(!filename){
-filename =
-'Integrity Test';
+filename = 'Integrity Test';
 }
 
 
@@ -2639,9 +2157,7 @@ return filename + '.pdf';
 
 
 
-/* ================================
-   SAVE TEST
-================================ */
+/* SAVE */
 
 function saveTest(){
 
@@ -2666,9 +2182,16 @@ JSON.stringify(arr)
 );
 
 
+/*
+Set the browser document title BEFORE
+opening the print dialogue.
+
+Windows uses this as the default
+Save as PDF filename.
+*/
+
 const originalTitle =
 document.title;
-
 
 document.title =
 getPdfFilename(data);
@@ -2685,6 +2208,11 @@ setTimeout(
 
 window.print();
 
+
+/*
+Restore the normal app title after
+the print dialogue has been opened.
+*/
 
 setTimeout(
 () => {
@@ -2704,9 +2232,7 @@ originalTitle;
 
 
 
-/* ================================
-   PRINT REPORT
-================================ */
+/* PRINT REPORT */
 
 function generatePrintReport(data){
 
@@ -2718,22 +2244,12 @@ let html = `
 
 <div class="print-header">
 
-<img
-class="print-logo"
-src="icon-192.png"
-alt="Morimi Fire Integrity"
->
-
-<div class="print-header-copy">
-
 <div class="print-title">
 Morimi Fire Integrity
 </div>
 
 <div class="print-subtitle">
 Fire Suppression Integrity Test
-</div>
-
 </div>
 
 </div>
@@ -2746,28 +2262,15 @@ Fire Suppression Integrity Test
 1. SITE DETAILS
 </div>
 
-
 <div class="print-grid">
 
-${printField(
-'Date',
-data.date
-)}
+${printField('Date',data.date)}
 
-${printField(
-'Technician',
-data.technician
-)}
+${printField('Technician',data.technician)}
 
-${printField(
-'Customer',
-data.customer
-)}
+${printField('Customer',data.customer)}
 
-${printField(
-'Building Address',
-data.area
-)}
+${printField('Building Address',data.area)}
 
 </div>
 
@@ -2781,23 +2284,13 @@ data.area
 2. ROOM & SYSTEM
 </div>
 
-
 <div class="print-grid">
 
-${printField(
-'Room',
-data.room
-)}
+${printField('Room',data.room)}
 
-${printField(
-'Room Type',
-data.roomType
-)}
+${printField('Room Type',data.roomType)}
 
-${printField(
-'Gas Type',
-data.gas
-)}
+${printField('Gas Type',data.gas)}
 
 ${printField(
 'Gas Weight',
@@ -2833,19 +2326,14 @@ data.protectionHeight
 <tr>
 
 <th>Section</th>
-
 <th>Length (m)</th>
-
 <th>Width (m)</th>
-
 <th>Height (m)</th>
-
 <th>Volume (m³)</th>
 
 </tr>
 
 </thead>
-
 
 <tbody>
 `;
@@ -2864,25 +2352,15 @@ html += `
 
 <tr>
 
-<td>
-${index+1}
-</td>
+<td>${index+1}</td>
 
-<td>
-${Number(s.l).toFixed(2)}
-</td>
+<td>${Number(s.l).toFixed(2)}</td>
 
-<td>
-${Number(s.w).toFixed(2)}
-</td>
+<td>${Number(s.w).toFixed(2)}</td>
 
-<td>
-${Number(s.h).toFixed(2)}
-</td>
+<td>${Number(s.h).toFixed(2)}</td>
 
-<td>
-${volume.toFixed(2)}
-</td>
+<td>${volume.toFixed(2)}</td>
 
 </tr>
 
@@ -2915,7 +2393,6 @@ ${Number(data.total).toFixed(2)} m³
 4. PRESSURIZATION TEST
 </div>
 
-
 ${printTestTable(
 data.pressurization,
 [
@@ -2937,7 +2414,6 @@ data.pressurization,
 5. DEPRESSURIZATION TEST
 </div>
 
-
 ${printTestTable(
 data.depressurization,
 [
@@ -2953,12 +2429,15 @@ data.depressurization,
 
 
 
+${printPhotos(data.photos)}
+
+
+
 <div class="print-section">
 
 <div class="print-section-title">
-6. NOTES
+7. NOTES
 </div>
-
 
 <div class="print-notes">
 
@@ -2988,9 +2467,7 @@ html;
 
 
 
-/* ================================
-   PRINT FIELD
-================================ */
+/* PRINT FIELD */
 
 function printField(label,value){
 
@@ -3015,8 +2492,72 @@ ${escapeHTML(value || '—')}
 
 
 /* ================================
-   PRINT TEST TABLE
+   PRINT PHOTOS
 ================================ */
+
+function printPhotos(photos){
+
+if(!photos || !photos.length){
+return '';
+}
+
+
+let html = `
+
+<div class="print-section">
+
+<div class="print-section-title">
+6. PHOTOGRAPHIC EVIDENCE
+</div>
+
+<div class="print-photos">
+
+`;
+
+
+photos.forEach(
+(photo,index) => {
+
+if(!photo){
+return;
+}
+
+
+html += `
+
+<div class="print-photo">
+
+<img
+src="${escapeHTML(photo)}"
+alt="Site photograph ${index + 1}">
+
+<div class="print-photo-number">
+Photograph ${index + 1}
+</div>
+
+</div>
+
+`;
+
+});
+
+
+html += `
+
+</div>
+
+</div>
+
+`;
+
+
+return html;
+
+}
+
+
+
+/* PRINT TEST TABLE */
 
 function printTestTable(
 tests,
@@ -3036,9 +2577,7 @@ let html = `
 
 <tr>
 
-<th>
-Fan Setting
-</th>
+<th>Fan Setting</th>
 
 ${pressures.map(
 p => `<th>${p}</th>`
@@ -3047,7 +2586,6 @@ p => `<th>${p}</th>`
 </tr>
 
 </thead>
-
 
 <tbody>
 
@@ -3062,23 +2600,19 @@ html += `
 <tr>
 
 <td>
-${escapeHTML(
-test.fanSetting || ''
-)}
+${escapeHTML(test.fanSetting || '')}
 </td>
 
 ${pressures.map(
 p => `
 
 <td>
-
 ${escapeHTML(
 test.results &&
 test.results[p]
 ? test.results[p]
 : ''
 )}
-
 </td>
 
 `
@@ -3106,9 +2640,7 @@ return html;
 
 
 
-/* ================================
-   SAVED TESTS
-================================ */
+/* SAVED */
 
 function renderSaved(){
 
@@ -3173,8 +2705,7 @@ x.date || ''
 
 <div
 class="small"
-style="margin-top:4px"
->
+style="margin-top:4px">
 
 Building Address:
 
@@ -3187,8 +2718,7 @@ x.area || '—'
 
 <div
 class="small"
-style="margin-top:4px"
->
+style="margin-top:4px">
 
 Protection Height:
 
@@ -3205,8 +2735,7 @@ ${x.protectionHeight ? ' m' : ''}
 
 <button
 class="btn secondary"
-onclick="viewSaved(${i})"
->
+onclick="viewSaved(${i})">
 
 View
 
@@ -3215,8 +2744,7 @@ View
 
 <button
 class="btn primary"
-onclick="printSaved(${i})"
->
+onclick="printSaved(${i})">
 
 PDF
 
@@ -3225,8 +2753,7 @@ PDF
 
 <button
 class="btn danger"
-onclick="deleteSaved(${i})"
->
+onclick="deleteSaved(${i})">
 
 Delete
 
@@ -3249,9 +2776,7 @@ No saved tests yet.
 
 
 
-/* ================================
-   VIEW SAVED
-================================ */
+/* VIEW */
 
 function viewSaved(i){
 
@@ -3302,7 +2827,7 @@ PRESSURIZATION TEST
 if(x.pressurization){
 
 x.pressurization.forEach(
-test => {
+(test,index) => {
 
 text += `
 
@@ -3334,7 +2859,7 @@ DEPRESSURIZATION TEST
 if(x.depressurization){
 
 x.depressurization.forEach(
-test => {
+(test,index) => {
 
 text += `
 
@@ -3359,6 +2884,14 @@ Fan Setting: ${test.fanSetting || '-'}
 
 text += `
 
+PHOTOGRAPHIC EVIDENCE:
+
+${x.photos && x.photos.length
+  ? x.photos.length + ' photograph(s) attached'
+  : 'None'
+}
+
+
 NOTES:
 
 ${x.notes || 'None'}
@@ -3371,9 +2904,7 @@ alert(text);
 
 
 
-/* ================================
-   PRINT SAVED
-================================ */
+/* PRINT SAVED */
 
 function printSaved(i){
 
@@ -3394,9 +2925,12 @@ return;
 }
 
 
+/*
+Set the PDF filename for saved reports too.
+*/
+
 const originalTitle =
 document.title;
-
 
 document.title =
 getPdfFilename(data);
@@ -3432,9 +2966,7 @@ originalTitle;
 
 
 
-/* ================================
-   DELETE SAVED
-================================ */
+/* DELETE */
 
 function deleteSaved(i){
 
@@ -3461,9 +2993,7 @@ renderSaved();
 
 
 
-/* ================================
-   ESCAPE HTML
-================================ */
+/* ESCAPE HTML */
 
 function escapeHTML(value){
 
