@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -699,16 +698,6 @@ placeholder="Name">
 
 <input id="customer"
 placeholder="Customer">
-
-</div>
-
-
-<div class="field">
-
-<label>Site</label>
-
-<input id="site"
-placeholder="Site name">
 
 </div>
 
@@ -1916,36 +1905,30 @@ Object.values(x.results)
 
 const items = [
 
-
 [
 'Customer',
 val('customer')
 ],
 
-
 [
-'Site',
-val('site')
+'Building Address',
+val('area')
 ],
-
 
 [
 'Room',
 val('room')
 ],
 
-
 [
 'Room type',
 val('roomType')
 ],
 
-
 [
 'Gas',
 val('gas')
 ],
-
 
 [
 'Gas weight',
@@ -1954,7 +1937,6 @@ val('gasWeight')
 : ''
 ],
 
-
 [
 'Protection Height',
 val('protectionHeight')
@@ -1962,18 +1944,15 @@ val('protectionHeight')
 : ''
 ],
 
-
 [
 'Total volume',
 total().toFixed(2) + ' m³'
 ],
 
-
 [
 'Pressurization rows',
 pressRows + ' / 4'
 ],
-
 
 [
 'Depressurization rows',
@@ -2024,8 +2003,6 @@ date:val('date'),
 technician:val('technician'),
 
 customer:val('customer'),
-
-site:val('site'),
 
 area:val('area'),
 
@@ -2096,33 +2073,65 @@ photoData
    PDF FILENAME
 ================================ */
 
+/*
+The browser uses document.title when
+creating the default PDF filename.
+
+We use:
+
+Customer - Room name-number
+
+Characters that Windows / Android /
+iOS dislike in filenames are removed.
+*/
+
 function getPdfFilename(data){
 
-const clean = value => String(value || '')
-.trim()
-.replace(/[<>:"/\\|?*\x00-\x1F]/g, '')
-.replace(/\s+/g, ' ');
-
-
-const site =
-clean(data.site) ||
-'Unknown Site';
-
+const customer =
+(data.customer || 'Customer').trim();
 
 const room =
-clean(data.room) ||
-'Unknown Room';
+(data.room || 'Room').trim();
 
 
-return `${site} - ${room}`;
+let filename =
+customer +
+' - ' +
+room;
+
+
+/* Remove characters not allowed in filenames */
+
+filename =
+filename.replace(
+/[<>:"/\\|?*\x00-\x1F]/g,
+'-'
+);
+
+
+/* Remove trailing dots/spaces */
+
+filename =
+filename.replace(
+/[\s.]+$/,
+''
+);
+
+
+/* Avoid an empty filename */
+
+if(!filename){
+filename = 'Integrity Test';
+}
+
+
+return filename + '.pdf';
 
 }
 
 
 
-/* ================================
-   SAVE
-================================ */
+/* SAVE */
 
 function saveTest(){
 
@@ -2147,17 +2156,22 @@ JSON.stringify(arr)
 );
 
 
-generatePrintReport(data);
+/*
+Set the browser document title BEFORE
+opening the print dialogue.
 
-
-/* Set suggested PDF filename */
+Windows uses this as the default
+Save as PDF filename.
+*/
 
 const originalTitle =
 document.title;
 
-
 document.title =
 getPdfFilename(data);
+
+
+generatePrintReport(data);
 
 
 show('saved');
@@ -2168,31 +2182,28 @@ setTimeout(
 
 window.print();
 
-},
-300
-);
+/*
+Restore the normal app title after
+the print dialogue has been opened.
+*/
 
-
-/* Restore original title after printing */
-
-window.addEventListener(
-'afterprint',
-function restoreTitle(){
-
+setTimeout(
+() => {
 document.title =
 originalTitle;
+},
+1000
+);
 
 },
-{ once:true }
+300
 );
 
 }
 
 
 
-/* ================================
-   PRINT REPORT
-================================ */
+/* PRINT REPORT */
 
 function generatePrintReport(data){
 
@@ -2215,7 +2226,6 @@ Fire Suppression Integrity Test
 </div>
 
 
-
 <div class="print-section">
 
 <div class="print-section-title">
@@ -2229,8 +2239,6 @@ ${printField('Date',data.date)}
 ${printField('Technician',data.technician)}
 
 ${printField('Customer',data.customer)}
-
-${printField('Site',data.site)}
 
 ${printField('Building Address',data.area)}
 
@@ -2532,9 +2540,7 @@ return html;
 
 
 
-/* ================================
-   SAVED
-================================ */
+/* SAVED */
 
 function renderSaved(){
 
@@ -2585,13 +2591,26 @@ x.customer || 'No customer'
 ·
 
 ${escapeHTML(
-x.site || 'No site'
+x.room || 'No room'
 )}
 
 ·
 
 ${escapeHTML(
 x.date || ''
+)}
+
+</div>
+
+
+<div
+class="small"
+style="margin-top:4px">
+
+Building Address:
+
+${escapeHTML(
+x.area || '—'
 )}
 
 </div>
@@ -2681,8 +2700,6 @@ return;
 let text = `TEST RECORD
 
 Customer: ${x.customer || '-'}
-
-Site: ${x.site || '-'}
 
 Building Address: ${x.area || '-'}
 
@@ -2779,9 +2796,7 @@ alert(text);
 
 
 
-/* ================================
-   PRINT SAVED
-================================ */
+/* PRINT SAVED */
 
 function printSaved(i){
 
@@ -2802,17 +2817,18 @@ return;
 }
 
 
-generatePrintReport(data);
-
-
-/* Set suggested PDF filename */
+/*
+Set the PDF filename for saved reports too.
+*/
 
 const originalTitle =
 document.title;
 
-
 document.title =
 getPdfFilename(data);
+
+
+generatePrintReport(data);
 
 
 show('saved');
@@ -2823,31 +2839,24 @@ setTimeout(
 
 window.print();
 
-},
-300
-);
 
-
-/* Restore original title after printing */
-
-window.addEventListener(
-'afterprint',
-function restoreTitle(){
-
+setTimeout(
+() => {
 document.title =
 originalTitle;
+},
+1000
+);
 
 },
-{ once:true }
+300
 );
 
 }
 
 
 
-/* ================================
-   DELETE
-================================ */
+/* DELETE */
 
 function deleteSaved(i){
 
@@ -2874,9 +2883,7 @@ renderSaved();
 
 
 
-/* ================================
-   ESCAPE HTML
-================================ */
+/* ESCAPE HTML */
 
 function escapeHTML(value){
 
@@ -2923,4 +2930,3 @@ error
 </body>
 
 </html>
-```
