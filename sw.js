@@ -1,4 +1,4 @@
-const CACHE_NAME = "integrity-field-v8.8";
+const CACHE_NAME = "integrity-field-v9";
 
 const APP_FILES = [
   "./",
