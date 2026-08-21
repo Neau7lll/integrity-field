@@ -18,6 +18,10 @@ content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
 <style>
 
+/* =========================================================
+   GLOBAL
+========================================================= */
+
 :root{
   --bg:#f3f6f7;
   --card:#fff;
@@ -59,13 +63,36 @@ button{
   background:var(--bg);
 }
 
+
+/* =========================================================
+   HEADER
+========================================================= */
+
 header{
   background:var(--ink);
   color:#fff;
-  padding:22px 20px 18px;
+  padding:15px 20px;
   position:sticky;
   top:0;
   z-index:10;
+}
+
+.header-inner{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.header-logo{
+  width:48px;
+  height:48px;
+  object-fit:contain;
+  flex:0 0 48px;
+  border-radius:8px;
+}
+
+.header-text{
+  min-width:0;
 }
 
 .brand{
@@ -79,6 +106,11 @@ header{
   color:#b8c8ce;
   margin-top:3px;
 }
+
+
+/* =========================================================
+   MAIN
+========================================================= */
 
 main{
   padding:18px 16px 110px;
@@ -101,6 +133,11 @@ h1{
   color:var(--muted);
   margin:0 0 20px;
 }
+
+
+/* =========================================================
+   CARDS / FIELDS
+========================================================= */
 
 .card{
   background:var(--card);
@@ -162,6 +199,11 @@ textarea{
   resize:vertical;
 }
 
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
 .btn{
   border:0;
   border-radius:11px;
@@ -215,6 +257,11 @@ textarea{
   flex:1;
 }
 
+
+/* =========================================================
+   HOME
+========================================================= */
+
 .home-grid{
   display:grid;
   grid-template-columns:1fr 1fr;
@@ -240,6 +287,11 @@ textarea{
 .icon{
   font-size:30px;
 }
+
+
+/* =========================================================
+   ROOM SECTIONS
+========================================================= */
 
 .section{
   border:1px solid var(--line);
@@ -280,6 +332,11 @@ textarea{
   color:var(--muted);
 }
 
+
+/* =========================================================
+   PHOTOS
+========================================================= */
+
 .photo-grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
@@ -294,6 +351,17 @@ textarea{
   border-radius:10px;
   border:1px solid var(--line);
 }
+
+.photo-status{
+  margin-top:8px;
+  font-size:12px;
+  color:var(--muted);
+}
+
+
+/* =========================================================
+   SAVED TESTS
+========================================================= */
 
 .empty{
   padding:25px;
@@ -321,6 +389,11 @@ textarea{
   font-weight:750;
 }
 
+
+/* =========================================================
+   BOTTOM BAR
+========================================================= */
+
 .bottom{
   position:fixed;
   bottom:0;
@@ -338,9 +411,9 @@ textarea{
 }
 
 
-/* ================================
+/* =========================================================
    TEST TABLES
-================================ */
+========================================================= */
 
 .test-block{
   border:1px solid var(--line);
@@ -407,9 +480,9 @@ textarea{
 }
 
 
-/* ================================
+/* =========================================================
    PRINT REPORT
-================================ */
+========================================================= */
 
 #printReport{
   display:none;
@@ -434,9 +507,23 @@ textarea{
   }
 
   .print-header{
+    display:flex;
+    align-items:center;
+    gap:12px;
     border-bottom:2px solid #17232b;
     padding-bottom:10px;
     margin-bottom:15px;
+  }
+
+  .print-logo{
+    width:55px;
+    height:55px;
+    object-fit:contain;
+    flex:0 0 55px;
+  }
+
+  .print-brand-block{
+    flex:1;
   }
 
   .print-title{
@@ -453,6 +540,7 @@ textarea{
   .print-section{
     margin-bottom:16px;
     page-break-inside:avoid;
+    break-inside:avoid;
   }
 
   .print-section-title{
@@ -525,12 +613,6 @@ textarea{
     min-height:35px;
   }
 
-  /*
-    ================================
-    PRINT PHOTOGRAPHS
-    ================================
-  */
-
   .print-photos{
     display:grid;
     grid-template-columns:1fr 1fr;
@@ -573,6 +655,10 @@ textarea{
 }
 
 
+/* =========================================================
+   MOBILE
+========================================================= */
+
 @media(max-width:520px){
 
   .grid,
@@ -582,6 +668,16 @@ textarea{
 
   .actions{
     flex-direction:column;
+  }
+
+  .header-logo{
+    width:42px;
+    height:42px;
+    flex-basis:42px;
+  }
+
+  .brand{
+    font-size:18px;
   }
 
   .test-table th{
@@ -611,7 +707,21 @@ textarea{
 <div class="app">
 
 
+<!-- =====================================================
+     HEADER
+====================================================== -->
+
 <header>
+
+<div class="header-inner">
+
+<img
+class="header-logo"
+src="logo.png"
+alt="Morimi Fire Integrity"
+onerror="this.onerror=null;this.src='icon-192.png';">
+
+<div class="header-text">
 
 <div class="brand">
 Morimi Fire Integrity
@@ -621,13 +731,19 @@ Morimi Fire Integrity
 Fire suppression integrity test · field data capture
 </div>
 
+</div>
+
+</div>
+
 </header>
 
 
 <main>
 
 
-<!-- HOME -->
+<!-- =====================================================
+     HOME
+====================================================== -->
 
 <section id="home" class="screen active">
 
@@ -673,7 +789,9 @@ View completed records
 
 
 
-<!-- TEST -->
+<!-- =====================================================
+     TEST
+====================================================== -->
 
 <section id="test" class="screen">
 
@@ -905,15 +1023,10 @@ Pressurization
 <tr>
 
 <th>Fan Setting</th>
-
 <th>12</th>
-
 <th>24</th>
-
 <th>36</th>
-
 <th>48</th>
-
 <th>60</th>
 
 </tr>
@@ -923,168 +1036,57 @@ Pressurization
 
 <tbody>
 
+<script>
+
+for(let i=1;i<=4;i++){
+
+document.write(`
+
 <tr>
 
 <td>
-<input id="press-fan-1"
+<input id="press-fan-${i}"
 type="text"
 placeholder="Fan">
 </td>
 
 <td>
-<input id="press-1-12"
+<input id="press-${i}-12"
 type="text"
 inputmode="decimal">
 </td>
 
 <td>
-<input id="press-1-24"
+<input id="press-${i}-24"
 type="text"
 inputmode="decimal">
 </td>
 
 <td>
-<input id="press-1-36"
+<input id="press-${i}-36"
 type="text"
 inputmode="decimal">
 </td>
 
 <td>
-<input id="press-1-48"
+<input id="press-${i}-48"
 type="text"
 inputmode="decimal">
 </td>
 
 <td>
-<input id="press-1-60"
+<input id="press-${i}-60"
 type="text"
 inputmode="decimal">
 </td>
 
 </tr>
 
+`);
 
-<tr>
+}
 
-<td>
-<input id="press-fan-2"
-type="text"
-placeholder="Fan">
-</td>
-
-<td>
-<input id="press-2-12"
-type="text"
-inputmode="decimal">
-</td>
-
-<td>
-<input id="press-2-24"
-type="text"
-inputmode="decimal">
-</td>
-
-<td>
-<input id="press-2-36"
-type="text"
-inputmode="decimal">
-</td>
-
-<td>
-<input id="press-2-48"
-type="text"
-inputmode="decimal">
-</td>
-
-<td>
-<input id="press-2-60"
-type="text"
-inputmode="decimal">
-</td>
-
-</tr>
-
-
-<tr>
-
-<td>
-<input id="press-fan-3"
-type="text"
-placeholder="Fan">
-</td>
-
-<td>
-<input id="press-3-12"
-type="text"
-inputmode="decimal">
-</td>
-
-<td>
-<input id="press-3-24"
-type="text"
-inputmode="decimal">
-</td>
-
-<td>
-<input id="press-3-36"
-type="text"
-inputmode="decimal">
-</td>
-
-<td>
-<input id="press-3-48"
-type="text"
-inputmode="decimal">
-</td>
-
-<td>
-<input id="press-3-60"
-type="text"
-inputmode="decimal">
-</td>
-
-</tr>
-
-
-<tr>
-
-<td>
-<input id="press-fan-4"
-type="text"
-placeholder="Fan">
-</td>
-
-<td>
-<input id="press-4-12"
-type="text"
-inputmode="decimal">
-</td>
-
-<td>
-<input id="press-4-24"
-type="text"
-inputmode="decimal">
-</td>
-
-<td>
-<input id="press-4-36"
-type="text"
-inputmode="decimal">
-</td>
-
-<td>
-<input id="press-4-48"
-type="text"
-inputmode="decimal">
-</td>
-
-<td>
-<input id="press-4-60"
-type="text"
-inputmode="decimal">
-</td>
-
-</tr>
+</script>
 
 </tbody>
 
@@ -1126,15 +1128,10 @@ Depressurization
 <tr>
 
 <th>Fan Setting</th>
-
 <th>-12</th>
-
 <th>-24</th>
-
 <th>-36</th>
-
 <th>-48</th>
-
 <th>-60</th>
 
 </tr>
@@ -1144,169 +1141,57 @@ Depressurization
 
 <tbody>
 
+<script>
+
+for(let i=1;i<=4;i++){
+
+document.write(`
 
 <tr>
 
 <td>
-<input id="depress-fan-1"
+<input id="depress-fan-${i}"
 type="text"
 placeholder="Fan">
 </td>
 
 <td>
-<input id="depress-1-12"
+<input id="depress-${i}-12"
 type="text"
 inputmode="decimal">
 </td>
 
 <td>
-<input id="depress-1-24"
+<input id="depress-${i}-24"
 type="text"
 inputmode="decimal">
 </td>
 
 <td>
-<input id="depress-1-36"
+<input id="depress-${i}-36"
 type="text"
 inputmode="decimal">
 </td>
 
 <td>
-<input id="depress-1-48"
+<input id="depress-${i}-48"
 type="text"
 inputmode="decimal">
 </td>
 
 <td>
-<input id="depress-1-60"
+<input id="depress-${i}-60"
 type="text"
 inputmode="decimal">
 </td>
 
 </tr>
 
+`);
 
-<tr>
+}
 
-<td>
-<input id="depress-fan-2"
-type="text"
-placeholder="Fan">
-</td>
-
-<td>
-<input id="depress-2-12"
-type="text"
-inputmode="decimal">
-</td>
-
-<td>
-<input id="depress-2-24"
-type="text"
-inputmode="decimal">
-</td>
-
-<td>
-<input id="depress-2-36"
-type="text"
-inputmode="decimal">
-</td>
-
-<td>
-<input id="depress-2-48"
-type="text"
-inputmode="decimal">
-</td>
-
-<td>
-<input id="depress-2-60"
-type="text"
-inputmode="decimal">
-</td>
-
-</tr>
-
-
-<tr>
-
-<td>
-<input id="depress-fan-3"
-type="text"
-placeholder="Fan">
-</td>
-
-<td>
-<input id="depress-3-12"
-type="text"
-inputmode="decimal">
-</td>
-
-<td>
-<input id="depress-3-24"
-type="text"
-inputmode="decimal">
-</td>
-
-<td>
-<input id="depress-3-36"
-type="text"
-inputmode="decimal">
-</td>
-
-<td>
-<input id="depress-3-48"
-type="text"
-inputmode="decimal">
-</td>
-
-<td>
-<input id="depress-3-60"
-type="text"
-inputmode="decimal">
-</td>
-
-</tr>
-
-
-<tr>
-
-<td>
-<input id="depress-fan-4"
-type="text"
-placeholder="Fan">
-</td>
-
-<td>
-<input id="depress-4-12"
-type="text"
-inputmode="decimal">
-</td>
-
-<td>
-<input id="depress-4-24"
-type="text"
-inputmode="decimal">
-</td>
-
-<td>
-<input id="depress-4-36"
-type="text"
-inputmode="decimal">
-</td>
-
-<td>
-<input id="depress-4-48"
-type="text"
-inputmode="decimal">
-</td>
-
-<td>
-<input id="depress-4-60"
-type="text"
-inputmode="decimal">
-</td>
-
-</tr>
+</script>
 
 </tbody>
 
@@ -1338,6 +1223,11 @@ accept="image/*"
 capture="environment"
 multiple
 onchange="previewPhotos(event)">
+
+<div id="photoStatus"
+class="photo-status">
+No photographs selected.
+</div>
 
 </div>
 
@@ -1381,7 +1271,8 @@ Refresh Review
 
 </button>
 
-<button class="btn primary"
+<button id="saveButton"
+class="btn primary"
 onclick="saveTest()">
 
 Save Test & PDF
@@ -1397,7 +1288,9 @@ Save Test & PDF
 
 
 
-<!-- SAVED -->
+<!-- =====================================================
+     SAVED
+====================================================== -->
 
 <section id="saved" class="screen">
 
@@ -1454,7 +1347,9 @@ Review current test
 
 
 
-<!-- PRINT REPORT -->
+<!-- =====================================================
+     PRINT REPORT
+====================================================== -->
 
 <div id="printReport"></div>
 
@@ -1463,9 +1358,15 @@ Review current test
 <script>
 
 
+/* =========================================================
+   GLOBAL STATE
+========================================================= */
+
 let sections = [];
 
 let photoData = [];
+
+let photoProcessing = false;
 
 
 const $ =
@@ -1473,7 +1374,9 @@ id => document.getElementById(id);
 
 
 
-/* NAVIGATION */
+/* =========================================================
+   NAVIGATION
+========================================================= */
 
 function show(id){
 
@@ -1498,13 +1401,17 @@ renderSaved();
 
 
 
-/* NEW TEST */
+/* =========================================================
+   NEW TEST
+========================================================= */
 
 function newTest(){
 
 sections = [];
 
 photoData = [];
+
+photoProcessing = false;
 
 
 /* Clear all fields */
@@ -1531,15 +1438,18 @@ $('roomType').value =
 
 $('photoPreview').innerHTML = '';
 
+$('photoStatus').textContent =
+'No photographs selected.';
+
 $('sections').innerHTML = '';
 
 
-/*
-Create the first room section.
-The test fields already exist in
-the HTML, so there is no missing
-element problem.
-*/
+/* Reset photo input */
+
+$('photos').value = '';
+
+
+/* Create first room section */
 
 addSection();
 
@@ -1551,7 +1461,9 @@ show('test');
 
 
 
-/* ADD ROOM SECTION */
+/* =========================================================
+   ADD ROOM SECTION
+========================================================= */
 
 function addSection(){
 
@@ -1663,7 +1575,9 @@ updateTotal();
 
 
 
-/* DIMENSIONS */
+/* =========================================================
+   DIMENSIONS
+========================================================= */
 
 function setDim(id,key,val){
 
@@ -1699,7 +1613,9 @@ updateTotal();
 
 
 
-/* REMOVE SECTION */
+/* =========================================================
+   REMOVE SECTION
+========================================================= */
 
 function removeSection(id){
 
@@ -1736,7 +1652,9 @@ updateTotal();
 
 
 
-/* TOTAL */
+/* =========================================================
+   TOTAL VOLUME
+========================================================= */
 
 function total(){
 
@@ -1765,45 +1683,131 @@ updateReview();
 
 
 
-/* PHOTOS */
+/* =========================================================
+   PHOTOS
+   Robust async handling
+========================================================= */
 
 function previewPhotos(e){
+
+const files =
+[...e.target.files];
+
 
 photoData = [];
 
 $('photoPreview').innerHTML = '';
 
+if(!files.length){
 
-[...e.target.files]
-.forEach(
-f => {
+$('photoStatus').textContent =
+'No photographs selected.';
+
+return Promise.resolve();
+
+}
+
+
+photoProcessing = true;
+
+$('photoStatus').textContent =
+'Processing ' +
+files.length +
+' photograph' +
+(files.length === 1 ? '' : 's') +
+'...';
+
+
+const readers =
+files.map(
+(file,index) => {
+
+return new Promise(
+(resolve,reject) => {
 
 const reader =
 new FileReader();
 
 
 reader.onload =
-x => {
+event => {
 
-photoData.push(
-x.target.result
+resolve({
+index:index,
+data:event.target.result
+});
+
+};
+
+
+reader.onerror =
+() => reject(reader.error);
+
+
+reader.readAsDataURL(file);
+
+});
+
+});
+
+
+return Promise
+.all(readers)
+.then(
+results => {
+
+results
+.sort(
+(a,b) =>
+a.index - b.index
 );
 
+
+photoData =
+results.map(
+x => x.data
+);
+
+
+photoData.forEach(
+(photo,index) => {
 
 const img =
 document.createElement('img');
 
 img.src =
-x.target.result;
+photo;
 
+img.alt =
+'Site photograph ' +
+(index + 1);
 
 $('photoPreview')
 .appendChild(img);
 
-};
+});
 
 
-reader.readAsDataURL(f);
+photoProcessing = false;
+
+$('photoStatus').textContent =
+photoData.length +
+' photograph' +
+(photoData.length === 1 ? '' : 's') +
+' ready for report.';
+
+},
+error => {
+
+console.error(
+'Photo processing failed:',
+error
+);
+
+photoProcessing = false;
+
+$('photoStatus').textContent =
+'One or more photographs could not be processed.';
 
 });
 
@@ -1811,7 +1815,9 @@ reader.readAsDataURL(f);
 
 
 
-/* VALUE */
+/* =========================================================
+   VALUE
+========================================================= */
 
 function val(id){
 
@@ -1826,7 +1832,9 @@ return element
 
 
 
-/* GET TEST ROWS */
+/* =========================================================
+   GET TEST ROWS
+========================================================= */
 
 function collectTestResults(
 prefix,
@@ -1864,13 +1872,16 @@ results:{}
 pressures.forEach(
 pressure => {
 
+const cleanPressure =
+pressure.replace('+','').replace('-','');
+
 const input =
 $(
 prefix +
 '-' +
 i +
 '-' +
-pressure.replace('+','')
+cleanPressure
 );
 
 row.results[pressure] =
@@ -1892,7 +1903,9 @@ return results;
 
 
 
-/* REVIEW */
+/* =========================================================
+   REVIEW
+========================================================= */
 
 function updateReview(){
 
@@ -1994,6 +2007,13 @@ pressRows + ' / 4'
 [
 'Depressurization rows',
 depressRows + ' / 4'
+],
+
+[
+'Photographs',
+photoData.length
+? photoData.length + ' attached'
+: 'None'
 ]
 
 ];
@@ -2027,7 +2047,9 @@ ${escapeHTML(x[1] || '—')}
 
 
 
-/* COLLECT */
+/* =========================================================
+   COLLECT DATA
+========================================================= */
 
 function collect(){
 
@@ -2107,9 +2129,9 @@ photoData
 
 
 
-/* ================================
+/* =========================================================
    PDF FILENAME
-================================ */
+========================================================= */
 
 function getPdfFilename(data){
 
@@ -2126,8 +2148,6 @@ customer +
 room;
 
 
-/* Remove characters not allowed in filenames */
-
 filename =
 filename.replace(
 /[<>:"/\\|?*\x00-\x1F]/g,
@@ -2135,16 +2155,12 @@ filename.replace(
 );
 
 
-/* Remove trailing dots/spaces */
-
 filename =
 filename.replace(
 /[\s.]+$/,
 ''
 );
 
-
-/* Avoid an empty filename */
 
 if(!filename){
 filename = 'Integrity Test';
@@ -2157,9 +2173,118 @@ return filename + '.pdf';
 
 
 
-/* SAVE */
+/* =========================================================
+   WAIT FOR IMAGES
+   This is the important PDF-photo fix.
+========================================================= */
 
-function saveTest(){
+function waitForPrintImages(){
+
+const images =
+[...
+$('printReport')
+.querySelectorAll('img')
+];
+
+
+if(!images.length){
+return Promise.resolve();
+}
+
+
+return Promise.all(
+images.map(
+img => {
+
+if(img.complete){
+
+if(img.naturalWidth > 0){
+return Promise.resolve();
+}
+
+}
+
+
+return new Promise(
+resolve => {
+
+img.onload = resolve;
+
+img.onerror = resolve;
+
+});
+
+})
+);
+
+}
+
+
+
+/* =========================================================
+   PRINT AFTER IMAGES LOAD
+========================================================= */
+
+function openPrintDialogue(){
+
+return waitForPrintImages()
+.then(
+() => {
+
+return new Promise(
+resolve => {
+
+setTimeout(
+() => {
+
+window.print();
+
+resolve();
+
+},
+350
+);
+
+});
+
+});
+
+}
+
+
+
+/* =========================================================
+   SAVE
+========================================================= */
+
+async function saveTest(){
+
+if(photoProcessing){
+
+alert(
+'Please wait for the photographs to finish processing.'
+);
+
+return;
+
+}
+
+
+const button =
+$('saveButton');
+
+
+if(button){
+
+button.disabled = true;
+
+button.textContent =
+'Preparing PDF...';
+
+}
+
+
+try{
 
 const data =
 collect();
@@ -2176,18 +2301,32 @@ localStorage.getItem(
 arr.unshift(data);
 
 
+try{
+
 localStorage.setItem(
 'integrityTests',
 JSON.stringify(arr)
 );
 
+}
+catch(error){
+
+console.error(
+'Could not save test:',
+error
+);
+
+alert(
+'The test could not be saved. The photographs may be too large for browser storage.'
+);
+
+return;
+
+}
+
 
 /*
-Set the browser document title BEFORE
-opening the print dialogue.
-
-Windows uses this as the default
-Save as PDF filename.
+Set browser title before print.
 */
 
 const originalTitle =
@@ -2200,19 +2339,16 @@ getPdfFilename(data);
 generatePrintReport(data);
 
 
+/*
+Switch to saved screen but keep
+print report visible to print CSS.
+*/
+
 show('saved');
 
 
-setTimeout(
-() => {
+await openPrintDialogue();
 
-window.print();
-
-
-/*
-Restore the normal app title after
-the print dialogue has been opened.
-*/
 
 setTimeout(
 () => {
@@ -2224,15 +2360,27 @@ originalTitle;
 1000
 );
 
-},
-300
-);
+}
+finally{
+
+if(button){
+
+button.disabled = false;
+
+button.textContent =
+'Save Test & PDF';
+
+}
+
+}
 
 }
 
 
 
-/* PRINT REPORT */
+/* =========================================================
+   GENERATE PRINT REPORT
+========================================================= */
 
 function generatePrintReport(data){
 
@@ -2244,12 +2392,22 @@ let html = `
 
 <div class="print-header">
 
+<img
+class="print-logo"
+src="logo.png"
+alt="Morimi Fire Integrity"
+onerror="this.onerror=null;this.src='icon-192.png';">
+
+<div class="print-brand-block">
+
 <div class="print-title">
 Morimi Fire Integrity
 </div>
 
 <div class="print-subtitle">
 Fire Suppression Integrity Test
+</div>
+
 </div>
 
 </div>
@@ -2343,9 +2501,9 @@ data.sections.forEach(
 (s,index) => {
 
 const volume =
-s.l *
-s.w *
-s.h;
+Number(s.l) *
+Number(s.w) *
+Number(s.h);
 
 
 html += `
@@ -2467,7 +2625,9 @@ html;
 
 
 
-/* PRINT FIELD */
+/* =========================================================
+   PRINT FIELD
+========================================================= */
 
 function printField(label,value){
 
@@ -2491,9 +2651,9 @@ ${escapeHTML(value || '—')}
 
 
 
-/* ================================
+/* =========================================================
    PRINT PHOTOS
-================================ */
+========================================================= */
 
 function printPhotos(photos){
 
@@ -2557,7 +2717,9 @@ return html;
 
 
 
-/* PRINT TEST TABLE */
+/* =========================================================
+   PRINT TEST TABLE
+========================================================= */
 
 function printTestTable(
 tests,
@@ -2580,7 +2742,7 @@ let html = `
 <th>Fan Setting</th>
 
 ${pressures.map(
-p => `<th>${p}</th>`
+p => `<th>${escapeHTML(p)}</th>`
 ).join('')}
 
 </tr>
@@ -2640,7 +2802,9 @@ return html;
 
 
 
-/* SAVED */
+/* =========================================================
+   SAVED TESTS
+========================================================= */
 
 function renderSaved(){
 
@@ -2731,6 +2895,19 @@ ${x.protectionHeight ? ' m' : ''}
 </div>
 
 
+<div
+class="small"
+style="margin-top:4px">
+
+Photographs:
+
+${x.photos && x.photos.length
+? x.photos.length + ' attached'
+: 'None'}
+
+</div>
+
+
 <div class="actions">
 
 <button
@@ -2776,7 +2953,9 @@ No saved tests yet.
 
 
 
-/* VIEW */
+/* =========================================================
+   VIEW SAVED
+========================================================= */
 
 function viewSaved(i){
 
@@ -2827,7 +3006,7 @@ PRESSURIZATION TEST
 if(x.pressurization){
 
 x.pressurization.forEach(
-(test,index) => {
+test => {
 
 text += `
 
@@ -2859,7 +3038,7 @@ DEPRESSURIZATION TEST
 if(x.depressurization){
 
 x.depressurization.forEach(
-(test,index) => {
+test => {
 
 text += `
 
@@ -2904,9 +3083,11 @@ alert(text);
 
 
 
-/* PRINT SAVED */
+/* =========================================================
+   PRINT SAVED
+========================================================= */
 
-function printSaved(i){
+async function printSaved(i){
 
 const arr =
 JSON.parse(
@@ -2925,10 +3106,6 @@ return;
 }
 
 
-/*
-Set the PDF filename for saved reports too.
-*/
-
 const originalTitle =
 document.title;
 
@@ -2942,10 +3119,7 @@ generatePrintReport(data);
 show('saved');
 
 
-setTimeout(
-() => {
-
-window.print();
+await openPrintDialogue();
 
 
 setTimeout(
@@ -2958,15 +3132,13 @@ originalTitle;
 1000
 );
 
-},
-300
-);
-
 }
 
 
 
-/* DELETE */
+/* =========================================================
+   DELETE SAVED
+========================================================= */
 
 function deleteSaved(i){
 
@@ -2993,7 +3165,9 @@ renderSaved();
 
 
 
-/* ESCAPE HTML */
+/* =========================================================
+   ESCAPE HTML
+========================================================= */
 
 function escapeHTML(value){
 
@@ -3009,6 +3183,10 @@ return String(value ?? '')
 </script>
 
 
+
+<!-- =====================================================
+     SERVICE WORKER
+====================================================== -->
 
 <script>
 
