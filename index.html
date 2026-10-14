@@ -932,6 +932,18 @@ placeholder="0.00">
 
 <div class="field">
 
+<label>Baseline Pressure</label>
+
+<input id="baselinePressure"
+type="text"
+inputmode="decimal"
+placeholder="Enter baseline pressure">
+
+</div>
+
+
+<div class="field">
+
 <label>Protection Height (m)</label>
 
 <input id="protectionHeight"
@@ -1367,6 +1379,37 @@ let sections = [];
 let photoData = [];
 
 let photoProcessing = false;
+
+// Embed the logo as a data URL before printing. This avoids print/PDF
+// previews losing a relative image path while the page is being printed.
+let printLogoDataUrl = '';
+
+async function preparePrintLogo(){
+  for(const candidate of ['logo.png', 'icon-192.png']){
+    try{
+      const response = await fetch(new URL(candidate, document.baseURI), {
+        cache: 'no-cache'
+      });
+      if(!response.ok) continue;
+
+      const blob = await response.blob();
+      if(!blob.type.startsWith('image/')) continue;
+
+      printLogoDataUrl = await new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = () => reject(reader.error);
+        reader.readAsDataURL(blob);
+      });
+      return printLogoDataUrl;
+    }catch(error){
+      console.warn('Could not load print logo:', candidate, error);
+    }
+  }
+
+  printLogoDataUrl = '';
+  return '';
+}
 
 
 const $ =
@@ -1988,6 +2031,10 @@ val('gasWeight')
 ],
 
 [
+'Baseline Pressure',
+val('baselinePressure')
+],
+[
 'Protection Height',
 val('protectionHeight')
 ? val('protectionHeight') + ' m'
@@ -2072,6 +2119,9 @@ roomType:val('roomType'),
 gas:val('gas'),
 
 gasWeight:val('gasWeight'),
+
+baselinePressure:
+val('baselinePressure'),
 
 protectionHeight:
 val('protectionHeight'),
@@ -2289,6 +2339,8 @@ try{
 const data =
 collect();
 
+await preparePrintLogo();
+
 
 let arr =
 JSON.parse(
@@ -2335,6 +2387,8 @@ document.title;
 document.title =
 getPdfFilename(data);
 
+
+await preparePrintLogo();
 
 generatePrintReport(data);
 
@@ -2394,9 +2448,8 @@ let html = `
 
 <img
 class="print-logo"
-src="logo.png"
-alt="Morimi Fire Integrity"
-onerror="this.onerror=null;this.src='icon-192.png';">
+src="${printLogoDataUrl || 'icon-192.png'}"
+alt="Morimi Fire Integrity">
 
 <div class="print-brand-block">
 
@@ -2455,6 +2508,11 @@ ${printField(
 data.gasWeight
 ? data.gasWeight + ' kg'
 : ''
+)}
+
+${printField(
+'Baseline Pressure',
+data.baselinePressure
 )}
 
 ${printField(
@@ -2990,6 +3048,8 @@ Gas: ${x.gas || '-'}
 
 Gas weight: ${x.gasWeight || '-'} kg
 
+Baseline pressure: ${x.baselinePressure || '-'}
+
 Protection Height: ${x.protectionHeight || '-'} m
 
 Total volume: ${Number(x.total || 0).toFixed(2)} m³
@@ -3112,6 +3172,8 @@ document.title;
 document.title =
 getPdfFilename(data);
 
+
+await preparePrintLogo();
 
 generatePrintReport(data);
 
