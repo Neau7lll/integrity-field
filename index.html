@@ -3252,26 +3252,23 @@ return String(value ?? '')
 
 <script>
 
-if("serviceWorker" in navigator){
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", async () => {
+    try {
+      const registration = await navigator.serviceWorker.register("./sw.js", {
+        updateViaCache: "none"
+      });
 
-window.addEventListener(
-"load",
-() => {
+      // Ask the browser to check for a newer service worker whenever the app opens.
+      await registration.update();
 
-navigator.serviceWorker
-.register("./sw.js")
-.catch(
-error => {
-
-console.warn(
-"Service worker registration failed:",
-error
-);
-
-});
-
-});
-
+      // If an update installs while this page is open, it will take over for
+      // future navigations. We deliberately do not force-reload mid-form,
+      // because that could discard a technician's unsaved entries.
+    } catch (error) {
+      console.warn("Service worker registration/update failed:", error);
+    }
+  });
 }
 
 </script>
